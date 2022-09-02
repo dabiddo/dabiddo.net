@@ -3,6 +3,7 @@ import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../config';
 import NewHeader from '../components/NewHeader.astro';
+import HeaderLink from '../components/HeaderLink.astro';
 ---
 
 <!DOCTYPE html>
@@ -11,7 +12,6 @@ import NewHeader from '../components/NewHeader.astro';
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 	</head>
 	<body>
-		<!--<Header title={SITE_TITLE} /> -->
         <NewHeader title={SITE_TITLE} />
         <div class="flex items-center justify-center min-h-screen bg-gray-900">
             <div class="col-span-12">
@@ -28,7 +28,7 @@ import NewHeader from '../components/NewHeader.astro';
                                 <p>
                                     I'll try to keep this blog updated as much as I can, but with so much work and other activities
                                     I might not have enough time to post new stuff.<br>
-                                    But you can always follow me on <a href="https:\\www.twitter.com\/dabiddokun">Twitter</a>.
+                                    But you can always follow me on <HeaderLink href="https://twitter.com/dabiddokun" target="_blank">Twitter</HeaderLink>.
                                 </p>
                             </main>
                         </div>
