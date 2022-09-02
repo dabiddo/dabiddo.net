@@ -1,0 +1,49 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../config';
+import NewHeader from '../components/NewHeader.astro';
+---
+
+<!DOCTYPE html>
+<html lang="en-us" data-theme="dark">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+		<!--<Header title={SITE_TITLE} /> -->
+        <NewHeader title={SITE_TITLE} />
+        <div class="flex items-center justify-center min-h-screen bg-gray-900">
+            <div class="col-span-12">
+                <div class="overflow-auto lg:overflow-visible ">
+                    <main class="container mx-auto">
+                        <div class="container mx-auto px-4 w-5/6">
+                            <main class="bg-gray-800 text-gray-500 p-2">
+                                <h1>🧑‍🚀 こんにちは!</h1>
+                                <p>
+                                    Welcome to my blog.<br> 
+                                    This page serves as my personal website, blog, & portfolio.<br>
+                                    Here I will be posting about both personal and professional stuff I learn everyday.
+                                </p>
+                                <p>
+                                    I'll try to keep this blog updated as much as I can, but with so much work and other activities
+                                    I might not have enough time to post new stuff.<br>
+                                    But you can always follow me on <a href="https:\\www.twitter.com\/dabiddokun">Twitter</a>.
+                                </p>
+                            </main>
+                        </div>
+                        <Footer />
+                    </main>
+                </div>
+            </div>
+        </div>
+	</body>
+</html>
+<style>
+    h1{
+        font-size: 16pt;
+    }
+    p{ 
+        font-size: 12pt;
+    }
+</style>

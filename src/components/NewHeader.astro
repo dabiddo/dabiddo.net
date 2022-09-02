@@ -1,0 +1,36 @@
+---
+import HeaderLink from './HeaderLink.astro';
+import { SITE_TITLE } from '../config';
+---
+
+<header data-theme="mytheme">
+    <div class="navbar bg-base-100">
+        <div class="navbar-start">
+          <div class="dropdown">
+            <label tabindex="0" class="btn btn-ghost lg:hidden">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+            </label>
+            <ul tabindex="0" class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
+              <li tabindex="0"><HeaderLink href="/">Home</HeaderLink></li>
+              <li><HeaderLink href="/blog">Blog</HeaderLink></li>
+              <li><HeaderLink href="/about">About</HeaderLink></li>
+            </ul>
+          </div>
+          <h1 class="btn btn-ghost normal-case text-xl">
+            <a href="/">{SITE_TITLE}</a>
+        </h1>
+          
+        </div>
+        <div class="navbar-center hidden lg:flex">
+          <ul class="menu menu-horizontal p-0">
+            <li tabindex="0"><HeaderLink href="/">Home</HeaderLink></li>
+            <li><HeaderLink href="/blog">Blog</HeaderLink></li>
+            <li><HeaderLink href="/about">About</HeaderLink></li>
+          </ul>
+        </div>
+        <div class="navbar-end">
+          <HeaderLink class="btn btn-circle m-2" href="https://twitter.com/dabiddokun" target="_blank">Tw</HeaderLink>
+          <HeaderLink class="btn btn-circle" href="https://github.com/dabiddo" target="_blank">GH</HeaderLink>
+        </div>
+      </div>
+</header>
