@@ -33,58 +33,76 @@ const posts = (await Astro.glob('./blog/*.{md,mdx}')).sort(
 			}
 		</style>
 	</head>
-	<body>
+	<body class="bg-gray-900">
 		<NewHeader />
-		<div class="flex items-center justify-center min-h-screen bg-gray-900">
-			<div class="col-span-12">
-				<div class="overflow-auto lg:overflow-visible ">
-					<main class="container mx-auto">
-						<section class="p-4">
-							<table class="table text-gray-400 border-separate space-y-6 text-sm">
-								<thead class="bg-gray-800 text-gray-500">
-									<tr>
-										<td class="p-3">Date</td>
-										<td class="p-3">Title</td>
-										<td class="p-3">Description</td>
-										<td class="p-3">Eng</td>
-										<td class="p-3">Jpn</td>
-									</tr>
-								</thead>
-								<tbody>
-									{posts.map((post) => (
-										<tr class="bg-gray-800">
-											<td class="p-3">
-												<time datetime={post.frontmatter.pubDate}>
-													{new Date(post.frontmatter.pubDate).toLocaleDateString('en-us', {
-														year: 'numeric',
-														month: 'short',
-														day: 'numeric',
-													})}
-												</time>
-											</td>
-											<td class="p-3">{post.frontmatter.title}</td>
-											<td class="p-3">{post.frontmatter.description}</td>
-											<td class="p-3">
-												<span class="bg-green-500 text-gray-50 rounded-none px-2"><a href={post.url}>view</a></span>
-											</td>
-											<td class="p3">
-												{(() => {
-													switch (post.frontmatter.jpn) {
-													case "#":   return <span class="bg-red-500 text-gray-50 rounded-none px-2"><a href="#">N/A</a></span>;
-													default:    return <span class="bg-green-500 text-gray-50 rounded-none px-2"><a href={post.frontmatter.jpn}>view</a></span>;
-													}
-												})()}
-											</td>
-										</tr>
-									))}
-								</tbody>
-							</table>
-						</section>
-						<Footer />
-					</main>
-				</div>
+		<div class="flex items-center justify-center">
+			<div class="container ">
+				<table class="w-full flex flex-row flex-no-wrap overflow-hidden border-separate sm:shadow-lg my-5 lg:table text-sm">
+					<thead class="text-gray-500">
+						{posts.map((post) => (
+						<tr class="bg-gray-800 flex flex-col flex-no wrap sm:table-row mb-2 sm:mb-0">
+							<th class="p-3 text-left">Date</th>
+							<th class="p-3 text-left">Title</th>
+							<th class="p-3 text-left">Description</th>
+							<th class="p-3 text-left">Eng</th>
+							<th class="p-3 text-left">Jpn</th>
+						</tr>
+						))}
+					</thead>
+					<tbody class="flex-1 sm:flex-none">
+						{posts.map((post) => (
+							<tr class="flex flex-col flex-no wrap sm:table-row mb-2 sm:mb-0">
+								<td class="p-3">
+									<time datetime={post.frontmatter.pubDate}>
+										{new Date(post.frontmatter.pubDate).toLocaleDateString('en-us', {
+											year: 'numeric',
+											month: 'short',
+											day: 'numeric',
+										})}
+									</time>
+								</td>
+								<td class="p-3 truncate">{post.frontmatter.title}</td>
+								<td class="p-3 truncate">{post.frontmatter.description}</td>
+								<td class="p-3 truncate">
+									<span class="bg-green-500 text-gray-50 rounded-none px-2"><a href={post.url}>view</a></span>
+								</td>
+								<td class="p-3 text-red-400 hover:text-red-600 hover:font-medium cursor-pointer">
+									{(() => {
+										switch (post.frontmatter.jpn) {
+										case "#":   return <span class="bg-red-500 text-gray-50 rounded-none px-2"><a href="#">N/A</a></span>;
+										default:    return <span class="bg-green-500 text-gray-50 rounded-none px-2"><a href={post.frontmatter.jpn}>view</a></span>;
+										}
+									})()}
+								</td>
+							</tr>
+						))}
+					</tbody>
+				</table>
 			</div>
 		</div>
-		
 	</body>
 </html>
+<style>
+	html,
+	body {
+	  height: 100%;
+	}
+  
+	@media (min-width: 640px) {
+	  table {
+		display: inline-table !important;
+	  }
+  
+	  thead tr:not(:first-child) {
+		display: none;
+	  }
+	}
+  
+	td:not(:last-child) {
+	  border-bottom: 0;
+	}
+  
+	th:not(:last-child) {
+	  border-bottom: 2px solid rgba(0, 0, 0, .1);
+	}
+  </style>

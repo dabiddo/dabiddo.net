@@ -1,0 +1,90 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../config';
+import NewHeader from "../components/NewHeader.astro";
+
+// Use Astro.glob() to fetch all posts, and then sort them by date.
+const posts = (await Astro.glob('./blog/*.{md,mdx}')).sort(
+	(a, b) => new Date(b.frontmatter.pubDate).valueOf() - new Date(a.frontmatter.pubDate).valueOf()
+);
+---
+
+<!DOCTYPE html>
+<html lang="en-us" data-theme="dark">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<style>
+			ul {
+				list-style-type: none;
+				padding: unset;
+			}
+			ul li {
+				display: flex;
+			}
+			ul li time {
+				flex: 0 0 130px;
+				font-style: italic;
+				color: #888;
+			}
+			ul li a:visited {
+				color: #8e32dc;
+			}
+		</style>
+	</head>
+	<body>
+		<NewHeader />
+		<div class="flex items-center justify-center min-h-screen bg-gray-900">
+			<div class="col-span-12">
+				<div class="overflow-auto lg:overflow-visible ">
+					<main class="container mx-auto">
+						<section class="p-4">
+							<table class="table text-gray-400 border-separate space-y-6 text-sm">
+								<thead class="bg-gray-800 text-gray-500">
+									<tr>
+										<td class="p-3">Date</td>
+										<td class="p-3">Title</td>
+										<td class="p-3">Description</td>
+										<td class="p-3">Eng</td>
+										<td class="p-3">Jpn</td>
+									</tr>
+								</thead>
+								<tbody>
+									{posts.map((post) => (
+										<tr class="bg-gray-800">
+											<td class="p-3">
+												<time datetime={post.frontmatter.pubDate}>
+													{new Date(post.frontmatter.pubDate).toLocaleDateString('en-us', {
+														year: 'numeric',
+														month: 'short',
+														day: 'numeric',
+													})}
+												</time>
+											</td>
+											<td class="p-3">{post.frontmatter.title}</td>
+											<td class="p-3">{post.frontmatter.description}</td>
+											<td class="p-3">
+												<span class="bg-green-500 text-gray-50 rounded-none px-2"><a href={post.url}>view</a></span>
+											</td>
+											<td class="p3">
+												{(() => {
+													switch (post.frontmatter.jpn) {
+													case "#":   return <span class="bg-red-500 text-gray-50 rounded-none px-2"><a href="#">N/A</a></span>;
+													default:    return <span class="bg-green-500 text-gray-50 rounded-none px-2"><a href={post.frontmatter.jpn}>view</a></span>;
+													}
+												})()}
+											</td>
+										</tr>
+									))}
+								</tbody>
+							</table>
+						</section>
+						<Footer />
+					</main>
+				</div>
+			</div>
+		</div>
+		
+	</body>
+</html>
