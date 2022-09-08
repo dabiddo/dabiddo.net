@@ -26,22 +26,22 @@ This tutorial uses the cli to do the deployment, but with those steps you can do
 Once you log into the kubernetes dashboard, head to `<deployments>` on the left side menu.<br/>
 From here, click the `<add new resource>` button on the top-right.<br/>
 
-<img oncontextmenu="return false;" src="https://media.publit.io/file/w_1280/microk8s_1.png" srcset="https://media.publit.io/file/w_320/microk8s_1.png 320w, https://media.publit.io/file/w_640/microk8s_1.png 640w, https://media.publit.io/file/w_1024/microk8s_1.png 1024w, https://media.publit.io/file/w_1280/microk8s_1.png 1280w" sizes="40vw" alt="microk8s_1" />
+<img oncontextmenu="return false;" src="https://media.publit.io/file/w_1280/microk8s_1.png" srcset="https://media.publit.io/file/w_320/microk8s_1.png 320w, https://media.publit.io/file/w_640/microk8s_1.png 640w, https://media.publit.io/file/w_1024/microk8s_1.png 1024w, https://media.publit.io/file/w_1280/microk8s_1.png 1280w" sizes="(max-width: 710px) 100vw,40vw" alt="microk8s_1" />
 
 Fill in the form and the docker image `use the image + tag` for the container image, since the example does not have a tag, docker generates a random one, and set the ports to 80/80<br/>
-<img oncontextmenu="return false;" src="https://media.publit.io/file/w_640/microk8s_3.png" srcset="https://media.publit.io/file/w_320/microk8s_3.png 320w, https://media.publit.io/file/w_640/microk8s_3.png 640w" sizes="40vw" alt="microk8s_3" />
+<img oncontextmenu="return false;" src="https://media.publit.io/file/w_640/microk8s_3.png" srcset="https://media.publit.io/file/w_320/microk8s_3.png 320w, https://media.publit.io/file/w_640/microk8s_3.png 640w" sizes="(max-width: 710px) 100vw,40vw" alt="microk8s_3" />
 
 From here, fill in the rest of the form and click `<Show Advance Configuration>`, change the deployment namespace to `default`<br/>
 
-<img oncontextmenu="return false;" src="https://media.publit.io/file/w_640/microk8s_4.png" srcset="https://media.publit.io/file/w_320/microk8s_4.png 320w, https://media.publit.io/file/w_640/microk8s_4.png 640w" sizes="40vw" alt="microk8s_4" />
+<img oncontextmenu="return false;" src="https://media.publit.io/file/w_640/microk8s_4.png" srcset="https://media.publit.io/file/w_320/microk8s_4.png 320w, https://media.publit.io/file/w_640/microk8s_4.png 640w" sizes="(max-width: 710px) 100vw,40vw" alt="microk8s_4" />
 
 Once everything is correct, click on the `<deploy>` button and head to the ssh cli and run the namespace command.<br/>
 `microk8s kubectl get all --all-namespaces`.<br/>
 This will list all the namespaces and you will see you new `pod` with the given port by kubernetes.<br/>
-<img oncontextmenu="return false;" src="https://media.publit.io/file/w_1024/microk8s_6.png" srcset="https://media.publit.io/file/w_320/microk8s_6.png 320w, https://media.publit.io/file/w_640/microk8s_6.png 640w, https://media.publit.io/file/w_1024/microk8s_6.png 1024w" sizes="40vw" alt="microk8s_6" />
+<img oncontextmenu="return false;" src="https://media.publit.io/file/w_1024/microk8s_6.png" srcset="https://media.publit.io/file/w_320/microk8s_6.png 320w, https://media.publit.io/file/w_640/microk8s_6.png 640w, https://media.publit.io/file/w_1024/microk8s_6.png 1024w" sizes="(max-width: 710px) 100vw,40vw" alt="microk8s_6" />
 <br/>
 Add this port to the list of port-forwards on virtual-box, and you will be able to see the `hello world` docker running from your kubernetes node.
-<img oncontextmenu="return false;" src="https://media.publit.io/file/w_640/microk8s_7.png" srcset="https://media.publit.io/file/w_320/microk8s_7.png 320w, https://media.publit.io/file/w_640/microk8s_7.png 640w" sizes="50vw" alt="microk8s_7" />
+<img oncontextmenu="return false;" src="https://media.publit.io/file/w_640/microk8s_7.png" srcset="https://media.publit.io/file/w_320/microk8s_7.png 320w, https://media.publit.io/file/w_640/microk8s_7.png 640w" sizes="(max-width: 710px) 100vw,50vw" alt="microk8s_7" />
 You should be able to see the `hello-world`message on the browser
 <img oncontextmenu="return false;" src="https://media.publit.io/file/microk8s_8.png" alt="microk8s_8" />
 
