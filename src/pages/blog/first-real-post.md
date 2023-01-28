@@ -4,8 +4,8 @@ title: 'First Real Post'
 description: 'My first Real Post'
 pubDate: 'Sept 01 2022'
 image:
-    url: 'https://astro.build/assets/blog/astro-1-release-update/cover.jpeg' 
-    alt: 'Placeholder Image.'
+    url: '../placeholder-hero.jpg' 
+    alt: 'Made with Astro 1.0 & Love'
 jpn: '#'
 author: 'Dabiddo'
 ---

@@ -5,7 +5,7 @@ description: 'Using vscode remote-containers for astro.build enviroment'
 pubDate: 'Sept 03 2022'
 image:
     url: 'https://astro.build/assets/blog/astro-1-release-update/cover.jpeg' 
-    alt: 'Placeholder Image.'
+    alt: 'Astro is a really cool framework'
 jpn: 'https://qiita.com/dabiddo/items/cbcece76804a827ee4e8'
 author: 'Dabiddo'
 ---

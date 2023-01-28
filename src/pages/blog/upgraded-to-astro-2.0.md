@@ -6,8 +6,9 @@ description: 'Upgraded my blog to Astro 2.0.'
 author: 'Dabiddo'
 image:
     url: 'https://astro.build/assets/blog/astro-1-release-update/cover.jpeg' 
-    alt: 'Astro Placeholder Image'
+    alt: 'Astro 2.0 is really fast'
 tags: ["astro", "blogging", "learning in public"]
+jpn: '#'
 ---
 # I Upgraded
 

@@ -5,8 +5,8 @@ description: 'Installing and deploying a hello-world docker on microk8s.'
 pubDate: 'Sept 08 2022'
 jpn: 'https://qiita.com/dabiddo/items/9b11d93fb1b6d59d8d84'
 image:
-    url: 'https://astro.build/assets/blog/astro-1-release-update/cover.jpeg' 
-    alt: 'Placeholder Image.'
+    url: 'https://media.publit.io/file/Yamazaki.png' 
+    alt: ''
 author: 'Dabiddo'
 ---
 
