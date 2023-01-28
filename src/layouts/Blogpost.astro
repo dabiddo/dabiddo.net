@@ -5,16 +5,26 @@ const { frontmatter } = Astro.props;
 
 <Layout title="Welcome to My Blog.">
     <div>
-        <section class="grid-container">
-            <div class="item">
-                <h1 style="font-size: 25px;">{frontmatter.title}</h1>
+        <section>
+            <div class="grid-container">
+                <div class="item">
+                    <h1>{frontmatter.title}</h1>
+                </div>
+                <div>
+                    {new Date(frontmatter.pubDate).toLocaleDateString('en-us', {
+                        year: 'numeric',
+                        month: 'numeric',
+                        day: 'numeric',
+                    })}
+                </div>
             </div>
-            <div style="font-size: large;">
-                {new Date(frontmatter.pubDate).toLocaleDateString('en-us', {
-                    year: 'numeric',
-                    month: 'numeric',
-                    day: 'numeric',
-                })}
+            <div style="text-align: right;">
+                {(() => {
+                    switch (frontmatter.jpn) {
+                    case "#":   return null;
+                    default:    return <span class="bg-green-500 text-gray-50 rounded-none px-2"><a href={frontmatter.jpn} target="_blank">view in jpn</a></span>;
+                    }
+                })()}
             </div>
         </section>
         <section>

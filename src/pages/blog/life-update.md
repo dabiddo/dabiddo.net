@@ -3,8 +3,8 @@ layout: ../../layouts/Blogpost.astro
 title: 'Life Update'
 description: 'Posting after a few weeks of hard work'
 image:
-    url: 'https://astro.build/assets/blog/astro-1-release-update/cover.jpeg' 
-    alt: 'Placeholder Image.'
+    url: 'https://media.publit.io/file/Yamazaki.png' 
+    alt: ''
 pubDate: 'Nov 16 2022'
 jpn: '#'
 author: 'Dabiddo'
