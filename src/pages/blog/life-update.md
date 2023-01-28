@@ -7,6 +7,7 @@ image:
     alt: 'Placeholder Image.'
 pubDate: 'Nov 16 2022'
 jpn: '#'
+author: 'Dabiddo'
 ---
 
 ### Posting after a while

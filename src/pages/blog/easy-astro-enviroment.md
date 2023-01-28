@@ -7,6 +7,7 @@ image:
     url: 'https://astro.build/assets/blog/astro-1-release-update/cover.jpeg' 
     alt: 'Placeholder Image.'
 jpn: 'https://qiita.com/dabiddo/items/cbcece76804a827ee4e8'
+author: 'Dabiddo'
 ---
 
 I started using VS remote-containers to test different languages, and I found this is the easies way to set up a new development enviroment for Astro.build

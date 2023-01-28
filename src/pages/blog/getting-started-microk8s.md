@@ -7,6 +7,7 @@ jpn: 'https://qiita.com/dabiddo/items/9b11d93fb1b6d59d8d84'
 image:
     url: 'https://astro.build/assets/blog/astro-1-release-update/cover.jpeg' 
     alt: 'Placeholder Image.'
+author: 'Dabiddo'
 ---
 
 ### Getting to know kubernetes

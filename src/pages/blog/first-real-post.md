@@ -7,6 +7,7 @@ image:
     url: 'https://astro.build/assets/blog/astro-1-release-update/cover.jpeg' 
     alt: 'Placeholder Image.'
 jpn: '#'
+author: 'Dabiddo'
 ---
 
 ### Welcome
