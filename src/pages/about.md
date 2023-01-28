@@ -1,9 +1,13 @@
 ---
-layout: "../layouts/BlogPost.astro"
+layout: "../layouts/Blogpost.astro"
 title: "About Me"
+pubDate: 2023-01-28
 description: "About Me!"
 updatedDate: "September 01 2022"
-heroImage: "/placeholder-about.jpg"
+author: 'Dabiddo'
+image:
+    url: '/placeholder-about.jpg' 
+    alt: 'Placeholder Profile Pic'
 ---
 
 ### Hello!

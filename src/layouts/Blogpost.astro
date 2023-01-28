@@ -1,0 +1,38 @@
+---
+import Layout from './Layout.astro';
+const { frontmatter } = Astro.props;
+---
+
+<Layout title="Welcome to My Blog.">
+    <div>
+        <section class="grid-container">
+            <div class="item">
+                <h1 style="font-size: 25px;">{frontmatter.title}</h1>
+            </div>
+            <div style="font-size: large;">
+                {new Date(frontmatter.pubDate).toLocaleDateString('en-us', {
+                    year: 'numeric',
+                    month: 'numeric',
+                    day: 'numeric',
+                })}
+            </div>
+        </section>
+        <section>
+            <figure>
+                <img src={frontmatter.image.url} width="300" alt={frontmatter.image.alt} />
+                <figcaption>{frontmatter.image.alt}</figcaption>
+                <p>Written by: {frontmatter.author}</p>
+              </figure>
+              <slot />
+        </section>
+        <hr>
+    </div>
+</Layout>
+<style>
+    .grid-container {
+  display: flex; /* or inline-flex */
+}
+    .item {
+  flex-grow: 4; /* default 0 */
+}
+</style>

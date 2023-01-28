@@ -1,9 +1,13 @@
 ---
-layout: '../../layouts/BlogPost.astro'
+layout: ../../layouts/Blogpost.astro
 title: 'Getting started with Kubernetes & Microk8s'
 description: 'Installing and deploying a hello-world docker on microk8s.'
 pubDate: 'Sept 08 2022'
 jpn: 'https://qiita.com/dabiddo/items/9b11d93fb1b6d59d8d84'
+image:
+    url: 'https://astro.build/assets/blog/astro-1-release-update/cover.jpeg' 
+    alt: 'Placeholder Image.'
+author: 'Dabiddo'
 ---
 
 ### Getting to know kubernetes
