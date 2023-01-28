@@ -1,49 +1,35 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Footer from '../components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../config';
-import NewHeader from '../components/NewHeader.astro';
-import HeaderLink from '../components/HeaderLink.astro';
+import Layout from '../layouts/Layout.astro';
+import Card from '../components/Card.astro';
+
+const allPosts = (await Astro.glob('../pages/blog/*.md')).sort(
+				(a, b) => new Date(b.frontmatter.pubDate).valueOf() - new Date(a.frontmatter.pubDate).valueOf()
+			);
 ---
 
-<!DOCTYPE html>
-<html lang="en-us" data-theme="dark">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body>
-        <NewHeader title={SITE_TITLE} />
-        <div class="flex items-center justify-center min-h-screen bg-gray-900">
-            <div class="col-span-12">
-                <div class="overflow-auto lg:overflow-visible ">
-                    <main class="container mx-auto">
-                        <div class="container mx-auto px-4 w-5/6">
-                            <main class="bg-gray-800 text-gray-500 p-2">
-                                <h1>🧑‍🚀 こんにちは!</h1>
-                                <p>
-                                    Welcome to my blog.<br> 
-                                    This page serves as my personal website, blog, & portfolio.<br>
-                                    Here I will be posting about both personal and professional stuff I learn everyday.
-                                </p>
-                                <p>
-                                    I'll try to keep this blog updated as much as I can, but with so much work and other activities
-                                    I might not have enough time to post new stuff.<br>
-                                    But you can always follow me on <HeaderLink href="https://twitter.com/dabiddokun" target="_blank">Twitter</HeaderLink>.
-                                </p>
-                            </main>
-                        </div>
-                        <Footer />
-                    </main>
-                </div>
-            </div>
-        </div>
-	</body>
-</html>
+<Layout title="Welcome to My Blog.">
+	<div>
+		<h2>Latest Blog Posts.</h2>
+		<ol class="terminal-toc">
+			{allPosts.map((post) => <li><a href={post.url}>{new Date(post.frontmatter.pubDate).toLocaleDateString('en-us', {
+				year: 'numeric',
+				month: 'short',
+				day: 'numeric',
+			})} - {post.frontmatter.title}</a></li>)}
+		</ol>
+	</div>
+</Layout>
+
 <style>
-    h1{
-        font-size: 16pt;
-    }
-    p{ 
-        font-size: 12pt;
-    }
+	h1 {
+		font-size: 3rem;
+		font-weight: 800;
+		margin: 0;
+	}
+	p{
+		color:black;
+	}
+	a.active{
+		color: white;
+	}
 </style>

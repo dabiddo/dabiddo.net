@@ -1,7 +1,10 @@
 ---
-layout: '../../layouts/BlogPost.astro'
+layout: ../../layouts/Blogpost.astro
 title: 'Life Update'
 description: 'Posting after a few weeks of hard work'
+image:
+    url: 'https://astro.build/assets/blog/astro-1-release-update/cover.jpeg' 
+    alt: 'Placeholder Image.'
 pubDate: 'Nov 16 2022'
 jpn: '#'
 ---

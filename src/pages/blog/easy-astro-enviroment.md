@@ -1,9 +1,11 @@
 ---
-layout: '../../layouts/BlogPost.astro'
+layout: ../../layouts/Blogpost.astro
 title: 'Easy Astro enviroment with VS Remote-Containers'
 description: 'Using vscode remote-containers for astro.build enviroment'
 pubDate: 'Sept 03 2022'
-heroImage: '/placeholder-hero.jpg'
+image:
+    url: 'https://astro.build/assets/blog/astro-1-release-update/cover.jpeg' 
+    alt: 'Placeholder Image.'
 jpn: 'https://qiita.com/dabiddo/items/cbcece76804a827ee4e8'
 ---
 
