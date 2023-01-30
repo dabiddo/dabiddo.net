@@ -1,13 +1,14 @@
 ---
-layout: ../../layouts/Blogpost.astro
+##layout: ../layouts/Blogpost.astro
 title: 'Easy Astro enviroment with VS Remote-Containers'
 description: 'Using vscode remote-containers for astro.build enviroment'
-pubDate: 'Sept 03 2022'
+pubDate: 2022-09-03
 image:
     url: 'https://astro.build/assets/blog/astro-1-release-update/cover.jpeg' 
     alt: 'Astro is a really cool framework'
 jpn: 'https://qiita.com/dabiddo/items/cbcece76804a827ee4e8'
 author: 'Dabiddo'
+tags: ["astro", "blogging", "learning in public"]
 ---
 
 I started using VS remote-containers to test different languages, and I found this is the easies way to set up a new development enviroment for Astro.build
