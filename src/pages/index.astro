@@ -1,21 +1,19 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
-
-const allPosts = (await Astro.glob('../pages/blog/*.md')).sort(
-				(a, b) => new Date(b.frontmatter.pubDate).valueOf() - new Date(a.frontmatter.pubDate).valueOf()
-			);
+import { getCollection } from 'astro:content';
+// Get all entries from a collection. Requires the name of the collection as an argument.
+const allPosts = await getCollection('blog');
 ---
 
 <Layout title="Welcome to My Blog.">
 	<div>
 		<h2>Latest Blog Posts.</h2>
 		<ol class="terminal-toc">
-			{allPosts.map((post) => <li><a href={post.url}>{new Date(post.frontmatter.pubDate).toLocaleDateString('en-us', {
-				year: 'numeric',
-				month: 'short',
-				day: 'numeric',
-			})} - {post.frontmatter.title}</a></li>)}
+			{allPosts.map(blogPostEntry => (
+				<li>
+				<a href={`/blog/${blogPostEntry.slug}`}>{blogPostEntry.data.pubDate.toDateString()} - {blogPostEntry.data.title}</a>
+				</li>
+			)).sort((a, b) => new Date(b.pubDate).valueOf()  - new Date(a.pubDate).valueOf())}
 		</ol>
 	</div>
 </Layout>

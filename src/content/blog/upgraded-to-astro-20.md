@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/Blogpost.astro
+##layout: ../layouts/Blogpost.astro
 title: 'Upgrade to Astro 2.0'
 pubDate: 2023-01-28
 description: 'Upgraded my blog to Astro 2.0.'

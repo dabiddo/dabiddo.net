@@ -1,13 +1,14 @@
 ---
-layout: ../../layouts/Blogpost.astro
+##layout: ../layouts/Blogpost.astro
 title: 'Life Update'
 description: 'Posting after a few weeks of hard work'
 image:
     url: 'https://media.publit.io/file/Yamazaki.png' 
     alt: ''
-pubDate: 'Nov 16 2022'
+pubDate: 2022-11-16
 jpn: '#'
 author: 'Dabiddo'
+tags: ["astro", "blogging", "learning in public"]
 ---
 
 ### Posting after a while
