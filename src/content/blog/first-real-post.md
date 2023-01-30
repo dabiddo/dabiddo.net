@@ -1,13 +1,14 @@
 ---
-layout: ../../layouts/Blogpost.astro
+##layout: ../layouts/Blogpost.astro
 title: 'First Real Post'
 description: 'My first Real Post'
-pubDate: 'Sept 01 2022'
+pubDate: 2022-09-01
 image:
     url: '/placeholder-hero.jpg' 
     alt: 'Made with Astro 1.0 & Love'
 jpn: '#'
 author: 'Dabiddo'
+tags: ["astro", "blogging", "learning in public"]
 ---
 
 ### Welcome
