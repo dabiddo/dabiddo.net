@@ -26,15 +26,20 @@ I'm not very active on social media, with the exception of <a href="https://twit
   <header><h2 id="NavigationList">Where to find me</h2></header>
   <nav>
     <ul>
-      <li><a href="https://twitter.com/dabiddokun" target="_blank">Twitter</a></li>
-      <li><a href="https://www.linkedin.com/in/dabiddo/" target="_blank">LinkedIn</a></li>
-      <li><a href="https://github.com/dabiddo" target="_blank">Github</a></li>
       <li>
         <a href="#">Profile:</a>
         <ul>
           <li><a href="https://gitconnected.com/dabiddo/resume" target="_blank">Resume</a></li>
         </ul>
-        </li>
+      </li>
+      <li>
+      <a href="#">Social Media::</a>
+      </li>
+      <ul>
+        <li><a href="https://twitter.com/dabiddokun" target="_blank">Twitter</a></li>
+        <li><a href="https://www.linkedin.com/in/dabiddo/" target="_blank">LinkedIn</a></li>
+        <li><a href="https://github.com/dabiddo" target="_blank">Github</a></li>
+      </ul>
     </ul>
   </nav>
 </section>
