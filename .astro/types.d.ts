@@ -98,6 +98,13 @@ declare module 'astro:content' {
   collection: "blog",
   data: InferEntrySchema<"blog">
 },
+"vscode-devcontainer-issues.md": {
+  id: "vscode-devcontainer-issues.md",
+  slug: "vscode-devcontainer-issues",
+  body: string,
+  collection: "blog",
+  data: InferEntrySchema<"blog">
+},
 },
 
 	};
