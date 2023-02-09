@@ -29,3 +29,7 @@ For the moment, that enviroment still fails.
 
 By watching the logs, I see it overrides my docker-compose file with one that has `BUILKIT_INLINE_CACHE:1` even if I set it to `0` on mine.
 hopefully it gets fixed soon, I see people having the issue when using docker-compose
+
+## Mini Update
+Following the github thread, I opted for downgrading to Docker 20.10, I'm now able to run my NestJs docker-compose enviroment.
+for downgrading, I followed the official Docker Guide on [installing a specific version](https://docs.docker.com/engine/install/ubuntu/)
