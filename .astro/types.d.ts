@@ -91,6 +91,13 @@ declare module 'astro:content' {
   collection: "blog",
   data: InferEntrySchema<"blog">
 },
+"playing-with.surrealdb.md": {
+  id: "playing-with.surrealdb.md",
+  slug: "playing-withsurrealdb",
+  body: string,
+  collection: "blog",
+  data: InferEntrySchema<"blog">
+},
 "upgraded-to-astro-20.md": {
   id: "upgraded-to-astro-20.md",
   slug: "upgraded-to-astro-20",
