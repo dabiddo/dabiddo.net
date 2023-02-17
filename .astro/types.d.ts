@@ -63,6 +63,13 @@ declare module 'astro:content' {
 
 	const entryMap: {
 		"blog": {
+"docker-compose-nuxt-with-surealdb.md": {
+  id: "docker-compose-nuxt-with-surealdb.md",
+  slug: "docker-compose-nuxt-with-surealdb",
+  body: string,
+  collection: "blog",
+  data: InferEntrySchema<"blog">
+},
 "easy-astro-enviroment.md": {
   id: "easy-astro-enviroment.md",
   slug: "easy-astro-enviroment",
