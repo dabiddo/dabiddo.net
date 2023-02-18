@@ -91,6 +91,13 @@ declare module 'astro:content' {
   collection: "blog",
   data: InferEntrySchema<"blog">
 },
+"getting-surrealdb-on-nuxt.md": {
+  id: "getting-surrealdb-on-nuxt.md",
+  slug: "getting-surrealdb-on-nuxt",
+  body: string,
+  collection: "blog",
+  data: InferEntrySchema<"blog">
+},
 "life-update.md": {
   id: "life-update.md",
   slug: "life-update",
