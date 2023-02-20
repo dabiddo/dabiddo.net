@@ -1,11 +1,11 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from '../layouts/BlogLayout.astro';
 import { getCollection } from 'astro:content';
 // Get all entries from a collection. Requires the name of the collection as an argument.
 const allPosts = await getCollection('blog');
 ---
 
-<Layout title="Welcome to My Blog.">
+<Layout title="Welcome to My Blog." description="My personal blog">
 	<div>
 		<h2>Latest Blog Posts.</h2>
 		<ol class="terminal-toc">
