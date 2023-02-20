@@ -3,7 +3,7 @@ import Layout from './BlogLayout.astro';
 const { frontmatter } = Astro.props;
 ---
 
-<Layout title="Welcome to My Blog.">
+<Layout title={frontmatter.title} description={frontmatter.description}>
     <div>
         <section>
             <div class="grid-container">
