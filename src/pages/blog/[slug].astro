@@ -49,19 +49,19 @@ const { Content } = await entry.render();
   <fieldset>
     <legend>Tags</legend>
     <div class="box">
-        {entry.data.tags.map((tag) => <li><a href={tag}>{tag}</a></li>)}
+        {entry.data.tags.map((tag) => <li><a href={'/tags/'+tag}>{tag}</a></li>)}
     </div>
   </fieldset>
 </Layout>
 <style>
   .grid-container {
-display: flex; /* or inline-flex */
+    display: flex; /* or inline-flex */
 }
   .item {
 flex-grow: 4; /* default 0 */
 }
 
 .box {
-            display: flex;
-          }
+  display: flex;
+}
 </style>
