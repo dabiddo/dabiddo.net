@@ -46,6 +46,12 @@ const { Content } = await entry.render();
   </div>
   <Content />
   <hr>
+  <fieldset>
+    <legend>Tags</legend>
+    <div class="box">
+        {entry.data.tags.map((tag) => <li><a href={tag}>{tag}</a></li>)}
+    </div>
+  </fieldset>
 </Layout>
 <style>
   .grid-container {
@@ -54,4 +60,8 @@ display: flex; /* or inline-flex */
   .item {
 flex-grow: 4; /* default 0 */
 }
+
+.box {
+            display: flex;
+          }
 </style>
