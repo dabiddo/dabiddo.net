@@ -105,6 +105,13 @@ declare module 'astro:content' {
   collection: "blog",
   data: InferEntrySchema<"blog">
 },
+"march-update.md": {
+  id: "march-update.md",
+  slug: "march-update",
+  body: string,
+  collection: "blog",
+  data: InferEntrySchema<"blog">
+},
 "playing-with.surrealdb.md": {
   id: "playing-with.surrealdb.md",
   slug: "playing-withsurrealdb",
