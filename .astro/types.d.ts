@@ -231,6 +231,13 @@ declare module 'astro:content' {
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".md"] };
+"laravel-nest-share-auth.md": {
+	id: "laravel-nest-share-auth.md";
+  slug: "laravel-nest-share-auth";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
 "life-update.md": {
 	id: "life-update.md";
   slug: "life-update";
