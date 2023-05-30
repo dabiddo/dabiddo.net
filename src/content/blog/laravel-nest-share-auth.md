@@ -6,7 +6,7 @@ image:
     url: 'https://media.publit.io/file/laravel_nestjs.png' 
     alt: 'Laravel & NestJs'
 pubDate: 2023-05-29
-jpn: '#'
+jpn: 'https://qiita.com/dabiddo/items/d74418383b468a32a57e'
 author: 'Dabiddo'
 tags: ["larave","nestjs"]
 ---
