@@ -8,7 +8,7 @@ image:
 pubDate: 2023-05-29
 jpn: 'https://qiita.com/dabiddo/items/d74418383b468a32a57e'
 author: 'Dabiddo'
-tags: ["larave","nestjs"]
+tags: ["laravel","nestjs"]
 ---
 
 # Laravel-NestJs share Authentication
