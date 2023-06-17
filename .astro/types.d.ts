@@ -231,6 +231,13 @@ declare module 'astro:content' {
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".md"] };
+"krakend-api-gateway.md": {
+	id: "krakend-api-gateway.md";
+  slug: "krakend-api-gateway";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
 "laravel-nest-share-auth.md": {
 	id: "laravel-nest-share-auth.md";
   slug: "laravel-nest-share-auth";
