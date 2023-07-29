@@ -231,6 +231,13 @@ declare module 'astro:content' {
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".md"] };
+"july-mini-update.md": {
+	id: "july-mini-update.md";
+  slug: "july-mini-update";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
 "krakend-api-gateway.md": {
 	id: "krakend-api-gateway.md";
   slug: "krakend-api-gateway";
