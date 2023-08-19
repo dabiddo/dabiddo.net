@@ -308,6 +308,13 @@ declare module 'astro:content' {
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".md"] };
+"working-with-devcontainers.md": {
+	id: "working-with-devcontainers.md";
+  slug: "working-with-devcontainers";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
 };
 
 	};
