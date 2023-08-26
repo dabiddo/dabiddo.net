@@ -196,6 +196,13 @@ declare module 'astro:content' {
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".md"] };
+"devpod-round-2.md": {
+	id: "devpod-round-2.md";
+  slug: "devpod-round-2";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
 "docker-compose-nuxt-with-surealdb.md": {
 	id: "docker-compose-nuxt-with-surealdb.md";
   slug: "docker-compose-nuxt-with-surealdb";
