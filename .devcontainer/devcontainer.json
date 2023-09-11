@@ -1,0 +1,14 @@
+{
+    "name":"blog",
+    "build": { "dockerfile": "Dockerfile" },
+	"forwardPorts": [
+		3000
+	],
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"astro-build.astro-vscode"
+			]
+		}
+	}
+}
