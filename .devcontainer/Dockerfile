@@ -1,10 +1,10 @@
-FROM node:18.17-alpine 
+FROM node:18.17-bookworm-slim 
 
 WORKDIR /app
 
-RUN apk update && \
-    apk add git && \
-    apk add openssh
+RUN apt update
+RUN apt install git -y
+#RUN apt install openssh -y
 
 ENV HOST 0.0.0.0
 EXPOSE 3000
