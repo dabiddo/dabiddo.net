@@ -210,6 +210,13 @@ declare module 'astro:content' {
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".md"] };
+"figuring-out-nuxt.md": {
+	id: "figuring-out-nuxt.md";
+  slug: "figuring-out-nuxt";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
 "first-real-post.md": {
 	id: "first-real-post.md";
   slug: "first-real-post";
