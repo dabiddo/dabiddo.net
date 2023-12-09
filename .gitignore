@@ -1,5 +1,6 @@
 # build output
 dist/
+.pnpm-store/
 
 # dependencies
 node_modules/
