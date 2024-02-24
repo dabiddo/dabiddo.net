@@ -5,7 +5,7 @@ description: "Weird issue with devpod and VSCode Browser"
 image:
     url: 'https://media.publit.io/file/devpod_sh.png' 
     alt: 'devpod.sh'
-pubDate: 2023-08-26
+pubDate: 2024-02-24
 jpn: '#'
 author: 'Dabiddo'
 tags: ["vscode", "devcontainers", "devpod", "docker"]
