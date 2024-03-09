@@ -140,6 +140,20 @@ declare module 'astro:content' {
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".md"] };
+"devpod_round_3.md": {
+	id: "devpod_round_3.md";
+  slug: "devpod_round_3";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"distro-hopped.md": {
+	id: "distro-hopped.md";
+  slug: "distro-hopped";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
 "distrohopping.md": {
 	id: "distrohopping.md";
   slug: "distrohopping";
