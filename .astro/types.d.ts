@@ -308,6 +308,13 @@ declare module 'astro:content' {
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".md"] };
+"upgrading_servers.md": {
+	id: "upgrading_servers.md";
+  slug: "upgrading_servers";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
 "vscode-devcontainer-issues.md": {
 	id: "vscode-devcontainer-issues.md";
   slug: "vscode-devcontainer-issues";
