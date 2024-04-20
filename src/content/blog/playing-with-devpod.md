@@ -8,7 +8,7 @@ image:
 pubDate: 2023-06-04
 jpn: '#'
 author: 'Dabiddo'
-tags: ["devcontainer","docker"]
+tags: ["devcontainers","docker"]
 ---
 
 # what is Devpod.sh
