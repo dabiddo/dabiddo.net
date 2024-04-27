@@ -1,8 +1,11 @@
 {
-    "name":"blog",
-    "build": { "dockerfile": "Dockerfile" },
+	"name": "blog",
+	"build": {
+		"dockerfile": "Dockerfile"
+	},
 	"forwardPorts": [
-		3000
+		3000,
+		4321
 	],
 	"customizations": {
 		"vscode": {
