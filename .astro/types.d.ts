@@ -294,6 +294,13 @@ declare module 'astro:content' {
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".md"] };
+"progress_made.md": {
+	id: "progress_made.md";
+  slug: "progress_made";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
 "projet_updates.md": {
 	id: "projet_updates.md";
   slug: "projet_updates";
