@@ -273,6 +273,13 @@ declare module 'astro:content' {
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".md"] };
+"nuxt_mysql.md": {
+	id: "nuxt_mysql.md";
+  slug: "nuxt_mysql";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
 "playing-with-devpod.md": {
 	id: "playing-with-devpod.md";
   slug: "playing-with-devpod";
