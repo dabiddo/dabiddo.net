@@ -133,6 +133,13 @@ declare module 'astro:content' {
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".md"] };
+"code_challenges.md": {
+	id: "code_challenges.md";
+  slug: "code_challenges";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
 "devpod-round-2.md": {
 	id: "devpod-round-2.md";
   slug: "devpod-round-2";
