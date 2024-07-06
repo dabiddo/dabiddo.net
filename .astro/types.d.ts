@@ -273,6 +273,13 @@ declare module 'astro:content' {
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".md"] };
+"new_content_vwizard.md": {
+	id: "new_content_vwizard.md";
+  slug: "new_content_vwizard";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
 "new_japanese_blog.md": {
 	id: "new_japanese_blog.md";
   slug: "new_japanese_blog";
