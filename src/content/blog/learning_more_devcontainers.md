@@ -56,3 +56,6 @@ Since not everyone uses the Git SSH keys, I will not be adding the config to the
 
 #### Update
 Seems this trick only works on node-bookworm devcontainers, I tried doing the same in my Laravel project using `frankenPHP` but no luck, I'll keep trying and searching for possible solutions to laravel
+
+#### New Update
+The configuration presented here works, but because my frankenPHP container is running as `root`, I can't replace the `.gitconfig` from my host PC,so whenever I re-build my container, I have to set the directory as safe, and add my git username/email to the local repo in order for it to work.
