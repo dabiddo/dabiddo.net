@@ -53,3 +53,6 @@ While looking online and with a bit of help from chatgpt I managed to get it wor
 This is how my Blog `devcontainer.json` file is structured
 
 Since not everyone uses the Git SSH keys, I will not be adding the config to the `vcontainer` wizard, but I will leave it here for future references, because I still need to add this to my work repo.
+
+#### Update
+Seems this trick only works on node-bookworm devcontainers, I tried doing the same in my Laravel project using `frankenPHP` but no luck, I'll keep trying and searching for possible solutions to laravel
