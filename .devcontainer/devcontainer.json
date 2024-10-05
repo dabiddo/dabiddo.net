@@ -1,5 +1,8 @@
 {
 	"name": "blog",
+	"settings": {
+		"security.workspace.trust.enabled": true
+	},
 	"build": {
 		"dockerfile": "Dockerfile"
 	},
@@ -7,6 +10,13 @@
 		3000,
 		4321
 	],
+	"mounts": [
+		"source=${env:SSH_AUTH_SOCK},target=/ssh-agent,type=bind"
+	],
+	"remoteEnv": {
+		"SSH_AUTH_SOCK": "/ssh-agent"
+	},
+	"postStartCommand": "ssh-add /home/vscode/.ssh/github",
 	"customizations": {
 		"vscode": {
 			"extensions": [
