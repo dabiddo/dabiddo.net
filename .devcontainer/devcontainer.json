@@ -1,27 +1,22 @@
 {
 	"name": "blog",
-	"settings": {
-		"security.workspace.trust.enabled": true
-	},
 	"build": {
 		"dockerfile": "Dockerfile"
+	},
+	"features": {
+		"ghcr.io/devcontainers/features/git:1": {}
 	},
 	"forwardPorts": [
 		3000,
 		4321
 	],
-	"mounts": [
-		"source=${env:SSH_AUTH_SOCK},target=/ssh-agent,type=bind"
-	],
-	"remoteEnv": {
-		"SSH_AUTH_SOCK": "/ssh-agent"
-	},
-	"postStartCommand": "ssh-add /home/vscode/.ssh/github",
 	"customizations": {
 		"vscode": {
 			"extensions": [
-				"astro-build.astro-vscode"
+				"astro-build.astro-vscode",
+				"ms-azuretools.vscode-docker"
 			]
 		}
-	}
+	},
+	"remoteUser": "node"
 }
