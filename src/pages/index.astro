@@ -1,33 +1,49 @@
 ---
 import Layout from '../layouts/BlogLayout.astro';
 import { getCollection } from 'astro:content';
-// Get all entries from a collection. Requires the name of the collection as an argument.
+
+// Get all posts and sort them
 const allPosts = await getCollection('blog');
+const sortedPosts = allPosts.sort((a, b) => 
+    new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf()
+);
+
+// Pagination setup
+const postsPerPage = 15;
+const totalPages = Math.ceil(sortedPosts.length / postsPerPage);
+const currentPage = 1;
+const currentPosts = sortedPosts.slice(0, postsPerPage);
 ---
 
 <Layout title="Welcome to My Blog." description="My personal blog">
 	<div>
 		<h2>Latest Blog Posts.</h2>
 		<ol class="terminal-toc">
-			{allPosts.sort((a, b) => new Date(b.data.pubDate).valueOf()  - new Date(a.data.pubDate).valueOf()).map(blogPostEntry => (
+			{currentPosts.map(blogPostEntry => (
 				<li>
-				<a href={`/blog/${blogPostEntry.slug}`}>{blogPostEntry.data.pubDate.toDateString()} - {blogPostEntry.data.title}</a>
+					<a href={`/blog/${blogPostEntry.slug}`}>
+						{blogPostEntry.data.pubDate.toDateString()} - {blogPostEntry.data.title}
+					</a>
 				</li>
 			))}
 		</ol>
+
+		<!-- Pagination controls -->
+		<div class="pagination">
+			<span>Page {currentPage} of {totalPages}</span>
+			{totalPages > 1 && (
+				<a href="/page/2">Next</a>
+			)}
+		</div>
 	</div>
 </Layout>
 
 <style>
-	h1 {
-		font-size: 3rem;
-		font-weight: 800;
-		margin: 0;
-	}
-	p{
-		color:black;
-	}
-	a.active{
-		color: white;
-	}
+.pagination {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2rem;
+}
 </style>
