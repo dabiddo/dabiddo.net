@@ -7,12 +7,6 @@ import FormattedDate from "../../components/FormattedDate.astro";
 const posts = (await getCollection("blog")).sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
-
-// Pagination setup
-const postsPerPage = 15;
-const totalPages = Math.ceil(posts.length / postsPerPage);
-const currentPage = 1;
-const currentPosts = posts.slice(0, postsPerPage);
 ---
 
 <Layout title={SITE_TITLE} description={SITE_DESCRIPTION}>

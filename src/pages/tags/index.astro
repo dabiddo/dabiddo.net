@@ -1,0 +1,40 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { getCollection } from "astro:content";
+
+export const getUniqueTags = (posts) => {
+    let tags: string[] = [];
+    posts.forEach((post) => {
+        tags = [...tags, ...post.data.tags]
+            .map((tag) => tag)
+            .filter(
+                (value: string, index: number, self: string[]) =>
+                    self.indexOf(value) === index,
+            );
+    });
+    return tags;
+};
+
+export const getPostsByTag = (posts, tag: string) =>
+    posts.filter((post) => post.data.tags.includes(tag));
+
+const posts = await getCollection("blog");
+let tags = getUniqueTags(posts);
+---
+
+<Layout title="tags" description="list all tags">
+    <fieldset>
+        <legend>Tags</legend>
+        <div class="form-group">
+            <ul>
+                {
+                    tags.map((tag) => (
+                        <li>
+                            <a href={`/tags/${tag}`}>{tag}</a>
+                        </li>
+                    ))
+                }
+            </ul>
+        </div>
+    </fieldset>
+</Layout>
