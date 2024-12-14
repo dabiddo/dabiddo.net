@@ -7,6 +7,12 @@ import FormattedDate from "../components/FormattedDate.astro";
 const posts = (await getCollection("blog")).sort(
     (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
+
+// Pagination setup
+const postsPerPage = 15;
+const totalPages = Math.ceil(posts.length / postsPerPage);
+const currentPage = 1;
+const currentPosts = posts.slice(0, postsPerPage);
 ---
 
 <Layout title={SITE_TITLE} description={SITE_DESCRIPTION}>
@@ -14,7 +20,7 @@ const posts = (await getCollection("blog")).sort(
         <h2>Latest Blog Posts.</h2>
         <ol class="terminal-toc">
             {
-                posts.map((post) => (
+                currentPosts.map((post) => (
                     <li>
                         <a href={`/blog/${post.id}/`}>
                             <FormattedDate date={post.data.pubDate} /> -{" "}
@@ -24,5 +30,11 @@ const posts = (await getCollection("blog")).sort(
                 ))
             }
         </ol>
+
+        <!-- Pagination controls -->
+        <div class="pagination">
+            <span>Page {currentPage} of {totalPages}</span>
+            {totalPages > 1 && <a href="/page/2">Next</a>}
+        </div>
     </div>
 </Layout>
