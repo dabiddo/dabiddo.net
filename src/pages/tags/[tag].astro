@@ -1,32 +1,32 @@
 ---
-import { getCollection } from 'astro:content';
-import Layout from "../../layouts/BlogLayout.astro";
+import { getCollection } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
 
 export const getUniqueTags = (posts) => {
-  let tags: string[] = [];
-  posts.forEach(post => {
-    tags = [...tags, ...post.data.tags]
-      .map(tag => (tag))
-      .filter(
-        (value: string, index: number, self: string[]) =>
-          self.indexOf(value) === index
-      );
-  });
-  return tags;
+    let tags: string[] = [];
+    posts.forEach((post) => {
+        tags = [...tags, ...post.data.tags]
+            .map((tag) => tag)
+            .filter(
+                (value: string, index: number, self: string[]) =>
+                    self.indexOf(value) === index,
+            );
+    });
+    return tags;
 };
 
 export const getPostsByTag = (posts, tag: string) =>
-  posts.filter(post => (post.data.tags).includes(tag));
+    posts.filter((post) => post.data.tags.includes(tag));
 
 export async function getStaticPaths() {
-  const posts = await getCollection("blog");
-  const tags = getUniqueTags(posts);
-  return tags.map(tag => {
-    return {
-      params: { tag },
-      props: { tag },
-    };
-  });
+    const posts = await getCollection("blog");
+    const tags = getUniqueTags(posts);
+    return tags.map((tag) => {
+        return {
+            params: { tag },
+            props: { tag },
+        };
+    });
 }
 const { tag } = Astro.props;
 const posts = await getCollection("blog");
@@ -39,11 +39,13 @@ const tagPosts = getPostsByTag(posts, tag);
         <div class="form-group">
             <ul>
                 {
-                  tagPosts.map(({ slug,data }) => (
-                    <li><a href={`/blog/${slug}`}>{data.title}</a></li>
-                  ))
+                    tagPosts.map(({ id, data }) => (
+                        <li>
+                            <a href={`/blog/${id}`}>{data.title}</a>
+                        </li>
+                    ))
                 }
-              </ul>
+            </ul>
         </div>
-      </fieldset>
+    </fieldset>
 </Layout>

@@ -4,4 +4,3 @@
 export const SITE_TITLE = 'Dabiddo\'s Blog';
 export const SITE_DESCRIPTION = 'Welcome to my Blog!';
 export const AUTHOR = 'Dabiddo';
-

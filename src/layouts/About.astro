@@ -1,9 +1,10 @@
 ---
-import Layout from './Layout.astro';
+import Layout from "./Layout.astro";
 const { frontmatter } = Astro.props;
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 ---
 
-<Layout title="Welcome to My Blog.">
+<Layout title={SITE_TITLE} description={SITE_DESCRIPTION}>
     <div>
         <section>
             <div class="grid-container">
@@ -14,19 +15,23 @@ const { frontmatter } = Astro.props;
         </section>
         <section>
             <figure>
-                <img src={frontmatter.image.url} width="300" alt={frontmatter.image.alt} />
+                <img
+                    src={frontmatter.image.url}
+                    width="300"
+                    alt={frontmatter.image.alt}
+                />
                 <figcaption>{frontmatter.image.alt}</figcaption>
-              </figure>
-              <slot />
+            </figure>
+            <slot />
         </section>
-        <hr>
+        <hr />
     </div>
 </Layout>
 <style>
     .grid-container {
-  display: flex; /* or inline-flex */
-}
+        display: flex; /* or inline-flex */
+    }
     .item {
-  flex-grow: 4; /* default 0 */
-}
+        flex-grow: 4; /* default 0 */
+    }
 </style>
