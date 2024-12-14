@@ -1,0 +1,65 @@
+---
+import type { CollectionEntry } from "astro:content";
+import Layout from "./Layout.astro";
+import FormattedDate from "../components/FormattedDate.astro";
+type Props = CollectionEntry<"blog">["data"];
+
+const { title, description, pubDate, updatedDate, image, author, jpn } =
+    Astro.props;
+---
+
+<Layout title={title} description={description}>
+    <div>
+        <section>
+            <div class="grid-container">
+                <div class="item">
+                    <h1>{title}</h1>
+                </div>
+                <div>
+                    {
+                        new Date(pubDate).toLocaleDateString("en-us", {
+                            year: "numeric",
+                            month: "numeric",
+                            day: "numeric",
+                        })
+                    }
+                </div>
+            </div>
+            <div style="text-align: right;">
+                {
+                    (() => {
+                        switch (jpn) {
+                            case "#":
+                                return null;
+                            default:
+                                return (
+                                    <span class="bg-green-500 text-gray-50 rounded-none px-2">
+                                        <a href={jpn} target="_blank">
+                                            view in jpn
+                                        </a>
+                                    </span>
+                                );
+                        }
+                    })()
+                }
+            </div>
+        </section>
+        <section>
+            <figure>
+                <img src={image.url} width="300" alt={image.alt} />
+                <figcaption>{image.alt}</figcaption>
+                <p>Written by: {author}</p>
+            </figure>
+            <slot />
+        </section>
+        <hr />
+    </div>
+</Layout>
+<style>
+    .grid-container {
+        display: flex; /* or inline-flex */
+    }
+    .item {
+        flex-grow: 4; /* default 0 */
+    }
+</style>
