@@ -116,3 +116,49 @@ and this is an example devcontainer.json file
 	"remoteUser": "node"
 }
 ```
+
+## Workaround Update
+
+After chatting with CodeLLM for a while and testig various ways to forward the ssh keys, we came with this workaround.
+
+1. Add the following lines to your `.devcontainer/devcontainer.json` file:
+   ```json
+   "mounts": [
+		"source=<patht_to_your_ssh_key>,target=/tmp/github,type=bind"
+	],
+	"postCreateCommand": "cp /tmp/github /home/node/.ssh/id_rsa && chmod 600 /home/node/.ssh/id_rsa && ssh-keyscan -t rsa github.com >> /home/node/.ssh/known_hosts"
+   ```
+
+2. Add this to the Dockerfile
+```Dockerfile
+
+#Add openssh-client to the list of APT packages
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    curl \
+    wget \
+    tar \
+    gzip \
+    git \
+    ca-certificates \
+    openssh-client \ 
+    && npm install -g pnpm \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+
+# Create necessary directories and set permissions
+RUN mkdir -p /app \
+    && chown -R node:node /app \
+    && mkdir -p /home/node/.ssh \
+    && chmod 700 /home/node/.ssh \
+    && chown -R node:node /home/node/.ssh \
+    # Create directory for SSH agent socket
+    && mkdir -p /ssh-agent \
+    && chown -R node:node /ssh-agent \
+    && chmod 700 /ssh-agent
+
+# Add known hosts for GitHub
+RUN ssh-keyscan -t rsa github.com >> /home/node/.ssh/known_hosts \
+    && chown node:node /home/node/.ssh/known_hosts \
+    && chmod 644 /home/node/.ssh/known_hosts
+```
+With these changes, re-create the container, and follow the instructions in the first part of the post, to re-install workspace extensions and re-create the devcontainer
