@@ -4,7 +4,7 @@ A modern, responsive personal blog built with [insert your tech stack here, e.g.
 
 ## 📝 Description
 
-This repository contains the source code for my personal blog where I share my thoughts, experiences, and knowledge about [insert your blog topics, e.g., technology, programming, design, etc.].
+This repository contains the source code for my personal blog where I share my thoughts, experiences, and knowledge about technology, programming, etc.
 
 ## ✨ Features
 
@@ -58,15 +58,16 @@ pnpm dev --host
 📝 Writing Content
 To add a new blog post, create a new MD file in the content/blog directory with the following frontmatter:
 
+```bash
 ---
 title: 'My New Blog Post'
 date: '2023-07-15'
 excerpt: 'A brief description of the post'
 tags: ['tag1', 'tag2']
 ---
-
 Content goes here...
 
+```
 
 This blog is set up to be deployed on Netlify Pages.
 
