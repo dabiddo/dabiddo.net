@@ -31,3 +31,5 @@ There’s still some fine-tuning left to do, but overall, the projects are stabl
 ## Still to come
 
 I'm still doing updates and refactoring, I think I have found a solution to my Git SSH not working inside Abacus CodeLLM editor, and I'm also testing the official Laravel VSCode Extension, that will help reduce the number of loaded extensions on the PHP/Laravel devcontainer projects.
+
+While I keep the `larabox` project private, you can checkout the [gowizard](https://github.com/dabiddo/gowizard) project and build your own Devcontainer enviroment script.
