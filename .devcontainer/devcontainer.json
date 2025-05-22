@@ -22,7 +22,7 @@
 	},
 	"remoteUser": "node",
 	"mounts": [
-		"source=/home/dabiddo/github,target=/tmp/github,type=bind"
-	],
-	"postCreateCommand": "cp /tmp/github /home/node/.ssh/id_rsa && chmod 600 /home/node/.ssh/id_rsa && ssh-keyscan -t rsa github.com >> /home/node/.ssh/known_hosts"
+		"source=${localEnv:HOME}/.gitconfig,target=/home/node/.gitconfig,type=bind,consistency=cached",
+		"source=${localEnv:HOME}/.ssh/dabiddo,target=/home/node/.ssh/id_rsa,type=bind,consistency=cached"
+	]
 }
