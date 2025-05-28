@@ -4,7 +4,7 @@ title: 'Easy Astro enviroment with VS Remote-Containers'
 description: 'Using vscode remote-containers for astro.build enviroment'
 pubDate: 2022-09-03
 image:
-    url: 'https://astro.build/assets/blog/astro-1-release-update/cover.jpeg' 
+    url: 'https://media.publit.io/file/Yamazaki.png' 
     alt: 'Astro is a really cool framework'
 jpn: 'https://qiita.com/dabiddo/items/cbcece76804a827ee4e8'
 author: 'Dabiddo'
@@ -15,10 +15,10 @@ I started using VS remote-containers to test different languages, and I found th
 
 Step 1 - Make a general folder
 
-<div class="mockup-code w-6">
-  <pre data-prefix="$"><code>mkdir astrodev</code></pre>
-  <pre data-prefix="$"><code>cd astrodev</code></pre>
-</div>
+```bash
+mkdir astrodev
+cd astrodev
+```
 
 Once inside the `astrodev` folder, create a new sub-folder called `.devcontainer`
 
@@ -71,13 +71,14 @@ Once it has finished building the image, you can open a new terminal from within
 
 Once confirmed it has installed correctly, you can reference the official Astro.buil documentation to create a new project.
 
-<div class="mockup-code">
-  <pre data-prefix="$"><code>yarn create astro</code></pre>
-  <pre ><code>...</code></pre>
-  <pre ><code>...</code></pre>
-  <pre data-prefix="$"><code>cd my-astro-project</code></pre>
-  <pre data-prefix="$"><code>yarn dev</code></pre>
-</div>
+```bash
+yarn create astro
+...
+...
+cd my-astro-project
+yarn dev
+
+```
 
 Hope you enjoy using astro.
 
