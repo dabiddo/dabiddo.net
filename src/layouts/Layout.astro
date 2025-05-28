@@ -1,5 +1,7 @@
 ---
 import Navbar from "../components/Navbar.astro";
+import "../styles/terminal.css";
+import "../styles/site.css";
 export interface Props {
     title: string;
     description: string;
@@ -14,10 +16,6 @@ const { title, description } = Astro.props;
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width" />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <link
-            rel="stylesheet"
-            href="https://unpkg.com/terminal.css@0.7.2/dist/terminal.min.css"
-        />
         <meta name="generator" content={Astro.generator} />
         <title>{title}</title>
         <!-- Primary Meta Tags -->
@@ -44,51 +42,10 @@ const { title, description } = Astro.props;
             content="https://media.publit.io/file/otherstuff/seo_header_v2.png"
         />
     </head>
-    <body class="terminal">
+    <body>
         <div class="container">
             <Navbar />
             <slot />
         </div>
     </body>
 </html>
-<style is:global>
-    :root {
-        --accent: 124, 58, 237;
-        --accent-gradient: linear-gradient(
-            45deg,
-            rgb(var(--accent)),
-            #da62c4 30%,
-            white 60%
-        );
-        --global-font-size: 15px;
-        --global-line-height: 1.4em;
-        --global-space: 10px;
-        --font-stack: Menlo, Monaco, Lucida Console, Liberation Mono,
-            DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace,
-            serif;
-        --mono-font-stack: Menlo, Monaco, Lucida Console, Liberation Mono,
-            DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace,
-            serif;
-        --background-color: #222225;
-        --page-width: 60em;
-        --font-color: #e8e9ed;
-        --invert-font-color: #222225;
-        --secondary-color: #a3abba;
-        --tertiary-color: #a3abba;
-        --primary-color: #62c4ff;
-        --error-color: #ff3c74;
-        --progress-bar-background: #3f3f44;
-        --progress-bar-fill: #62c4ff;
-        --code-bg-color: #3f3f44;
-        --input-style: solid;
-        --display-h1-decoration: none;
-    }
-
-    .text-gradient {
-        background-image: var(--accent-gradient);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-size: 400%;
-        background-position: 0%;
-    }
-</style>

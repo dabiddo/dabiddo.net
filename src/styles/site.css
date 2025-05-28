@@ -1,0 +1,51 @@
+.container {
+    width: 720px;
+    max-width: calc(100% - 2em);
+    margin: auto;
+    padding: 3em 1em;
+}
+
+#headline {
+    display: flex;
+    flex: 1;
+    white-space: nowrap;
+    line-height: 1;
+    letter-spacing: 0.04em;
+    font-size: 18px;
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: calc(var(--font-size) * 0.2);
+    text-transform: uppercase;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar-title {
+    flex: 1;
+}
+
+.navbar-nav {
+    flex: 1;
+}
+
+.navbar-nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.navbar-nav li {
+    margin-left: 1em;
+    /* Adjust spacing between nav items */
+}
+
+.navbar-nav a {
+    text-decoration: none;
+    color: inherit;
+}
