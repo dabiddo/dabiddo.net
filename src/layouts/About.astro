@@ -15,11 +15,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
         </section>
         <section>
             <figure>
-                <img
-                    src={frontmatter.image.url}
-                    width="300"
-                    alt={frontmatter.image.alt}
-                />
+                <img src={frontmatter.image.url} alt={frontmatter.image.alt} />
                 <figcaption>{frontmatter.image.alt}</figcaption>
             </figure>
             <slot />

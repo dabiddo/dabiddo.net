@@ -12,17 +12,37 @@ const posts = (await getCollection("blog")).sort(
 <Layout title={SITE_TITLE} description={SITE_DESCRIPTION}>
 	<div>
 		<h2>Latest Blog Posts.</h2>
-		<ol class="terminal-toc">
+		<ul>
 			{
-				posts.map((post) => (
-					<li>
-						<a href={`/blog/${post.id}/`}>
-							<FormattedDate date={post.data.pubDate} /> -{" "}
-							{post.data.title}
+				posts.map((post, idx) => (
+					<li key={post.id}>
+						<a
+							href={`/blog/${post.id}/`}
+							style={{
+								display: "flex",
+								alignItems: "center",
+								fontFamily: "monospace",
+								textDecoration: "none",
+							}}
+						>
+							<span style={{ flexShrink: 0 }}>
+								{idx + 1}.- {post.data.title}
+							</span>
+							<span
+								style={{
+									flexGrow: 1,
+									borderBottom: "1px dotted var(--accent)",
+									margin: "0 8px",
+									height: 0,
+								}}
+							/>
+							<span style={{ flexShrink: 0 }}>
+								<FormattedDate date={post.data.pubDate} />.
+							</span>
 						</a>
 					</li>
 				))
 			}
-		</ol>
+		</ul>
 	</div>
 </Layout>
