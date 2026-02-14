@@ -1,5 +1,5 @@
 ---
-import Layout from "../../layouts/Layout.astro";
+import Layout from "../../layouts/BiosLayout.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts";
 import { getCollection } from "astro:content";
 import FormattedDate from "../../components/FormattedDate.astro";
@@ -35,34 +35,19 @@ const { posts, currentPage, totalPages } = Astro.props;
 ---
 
 <Layout title={SITE_TITLE} description={SITE_DESCRIPTION}>
-    <div>
-        <h2>Latest Blog Posts.</h2>
-        <ul>
+     <main class="terminal-body">
+        <h3 class="section-title">[ LATEST_LOG_ENTRIES ]</h3>
+        
+        <ul class="post-list">
             {
                 posts.map((post, idx) => (
-                    <li key={post.id}>
-                        <a
-                            href={`/blog/${post.id}/`}
-                            style={{
-                                display: "flex",
-                                alignItems: "center",
-                                fontFamily: "monospace",
-                                textDecoration: "none",
-                            }}
-                        >
-                            <span style={{ flexShrink: 0 }}>
-                                {idx + 1}.- {post.data.title}
-                            </span>
-                            <span
-                                style={{
-                                    flexGrow: 1,
-                                    borderBottom: "1px dotted var(--accent)",
-                                    margin: "0 8px",
-                                    height: 0,
-                                }}
-                            />
-                            <span style={{ flexShrink: 0 }}>
-                                <FormattedDate date={post.data.pubDate} />.
+                    <li>
+                        <a href={`/blog/${post.id}/`} class="post-row">
+                            <span class="post-index">{(idx + 1).toString().padStart(2, '0')}.</span>
+                            <span class="post-title">{post.data.title.toUpperCase().replace(/\s+/g, '_')}</span>
+                            <span class="post-spacer"></span>
+                            <span class="post-date">
+                                <FormattedDate date={post.data.pubDate} />
                             </span>
                         </a>
                     </li>
@@ -72,24 +57,14 @@ const { posts, currentPage, totalPages } = Astro.props;
 
         <!-- Pagination controls -->
         <div class="pagination">
-            <a href={currentPage === 2 ? "/" : `/page/${currentPage - 1}`}
-                >Previous</a
-            >
+            <a class="nav-btn" href={currentPage === 2 ? "/" : `/page/${currentPage - 1}`}
+                ><<_PREVIOUS_PAGE</a>
             <span>Page {currentPage} of {totalPages}</span>
             {
                 currentPage < totalPages && (
-                    <a href={`/page/${currentPage + 1}`}>Next</a>
+                    <a class="nav-btn" href={`/page/${currentPage + 1}`}>NEXT_PAGE_>></a>
                 )
             }
         </div>
     </div>
 </Layout>
-<style>
-    .pagination {
-        display: flex;
-        gap: 1rem;
-        align-items: center;
-        justify-content: center;
-        margin-top: 2rem;
-    }
-</style>

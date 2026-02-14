@@ -1,0 +1,162 @@
+---
+import type { CollectionEntry } from "astro:content";
+import Layout from "../layouts/BiosLayout.astro";
+import FormattedDate from "../components/FormattedDate.astro";
+
+type Props = CollectionEntry<"blog">["data"];
+
+const { title, description, pubDate, image, author, jpn } = Astro.props;
+---
+
+<Layout title={title} description={description}>
+    <div class="article-container">
+        <nav class="breadcrumb">
+            C:\DABIDDO\BLOG\LOG_{
+                pubDate.toISOString().slice(0, 10).replace(/-/g, "_")
+            }.LOG
+        </nav>
+
+        <header class="article-header">
+            <div class="header-grid">
+                <h1>{title}</h1>
+                <div class="date-stamp">
+                    DATE: <FormattedDate date={pubDate} />
+                </div>
+            </div>
+
+            {
+                jpn && jpn !== "#" && (
+                    <div class="jpn-link">
+                        [
+                        <a href={jpn} target="_blank">
+                            VIEW_IN_JPN
+                        </a>
+                        ]
+                    </div>
+                )
+            }
+        </header>
+
+        <section class="content">
+            {
+                image && (
+                    <figure class="featured-image">
+                        {/* Accessing .url and .alt from your image object */}
+                        <img src={image.url} alt={image.alt} />
+                        <figcaption>
+                            [DATA_ATTACHMENT: {image.alt.toUpperCase()}]
+                        </figcaption>
+                        <p class="author-tag">
+                            OPERATOR: <mark>{author}</mark>
+                        </p>
+                    </figure>
+                )
+            }
+
+            <div class="prose-body">
+                <slot />
+            </div>
+        </section>
+
+        <footer class="article-footer">
+            <a href="/" class="back-btn"><< RETURN_TO_INDEX</a>
+            <span>EOF (END_OF_FILE)</span>
+        </footer>
+    </div>
+</Layout>
+
+<style>
+    .article-container {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .breadcrumb {
+        background: var(--term-green);
+        color: var(--term-bg);
+        display: inline-block;
+        padding: 2px 8px;
+        font-size: 0.8rem;
+        margin-bottom: 2rem;
+    }
+
+    .header-grid {
+        border-bottom: 2px double var(--term-dim);
+        padding-bottom: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    h1 {
+        margin: 0;
+        text-transform: uppercase;
+        font-size: 2rem;
+        text-shadow: 0 0 8px var(--term-green);
+    }
+
+    .date-stamp {
+        color: var(--term-dim);
+        font-size: 0.9rem;
+        margin-top: 0.5rem;
+    }
+
+    .jpn-link {
+        text-align: right;
+        margin-top: -1rem;
+        margin-bottom: 1rem;
+    }
+
+    /* --- IMAGE STYLES --- */
+    .featured-image {
+        margin: 0 0 2rem 0;
+        border: 1px solid var(--term-dim);
+        padding: 10px;
+        background: rgba(0, 255, 0, 0.05);
+    }
+
+    .featured-image img {
+        width: 100%;
+        height: auto;
+        display: block;
+        /* The "Monochrome Monitor" filter */
+        /*filter: grayscale(1) contrast(1.2) brightness(0.9) sepia(100%)
+            hue-rotate(50deg);*/
+        border: 1px solid var(--term-dim);
+    }
+
+    figcaption {
+        font-size: 0.7rem;
+        color: var(--term-dim);
+        margin-top: 10px;
+        text-align: center;
+    }
+
+    .author-tag {
+        font-size: 0.8rem;
+        margin-top: 10px;
+    }
+
+    /* Styles for the Markdown content */
+    .prose-body {
+        line-height: 1.6;
+        color: #d1ffd1; /* Slightly softer green for reading */
+    }
+
+    .article-footer {
+        margin-top: 4rem;
+        padding-top: 1rem;
+        border-top: 1px solid var(--term-dim);
+        display: flex;
+        justify-content: space-between;
+        color: var(--term-dim);
+        font-size: 0.8rem;
+    }
+
+    .back-btn {
+        color: var(--term-green);
+        text-decoration: none;
+    }
+
+    .back-btn:hover {
+        text-decoration: underline;
+    }
+</style>

@@ -1,0 +1,76 @@
+---
+import AsciiHeader from "../components/AsciiHeader.astro";
+import "../styles/hack.css";
+interface Props {
+    title: string;
+    description: string;
+}
+const { title, description } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>{title}</title>
+        <meta name="viewport" content="width=device-width" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="generator" content={Astro.generator} />
+        <title>{title}</title>
+        <!-- Primary Meta Tags -->
+        <meta name="title" content={title} />
+        <meta name="description" content={description} />
+
+        <!-- Open Graph / Facebook -->
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://dabiddo.net/" />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <meta
+            property="og:image"
+            content="https://media.publit.io/file/otherstuff/seo_header_v2.png"
+        />
+
+        <!-- Twitter -->
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="https://dabiddo.net/" />
+        <meta property="twitter:title" content={title} />
+        <meta property="twitter:description" content={description} />
+        <meta
+            property="twitter:image"
+            content="https://media.publit.io/file/otherstuff/seo_header_v2.png"
+        />
+    </head>
+    <body>
+        <div class="crt-frame"></div>
+        <div class="scanlines"></div>
+        <div class="container">
+            <AsciiHeader />
+            <slot />
+        </div>
+    </body>
+</html>
+
+<style is:global>
+    :root {
+        --term-green: #33ff33;
+        --term-bg: #050505;
+    }
+    body {
+        background: var(--term-bg);
+        color: var(--term-green);
+        font-family: "Courier New", monospace;
+    }
+    /* Add the CRT-Frame and Scanlines CSS here with is:global */
+    .scanlines {
+        position: fixed;
+        inset: 0;
+        background: linear-gradient(
+            rgba(18, 16, 16, 0.1) 50%,
+            rgba(0, 0, 0, 0) 50%
+        );
+        background-size: 100% 4px;
+        pointer-events: none;
+        z-index: 100;
+    }
+</style>
