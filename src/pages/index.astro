@@ -1,14 +1,14 @@
 ---
-import Layout from "../layouts/Layout.astro";
+import Layout from "../layouts/BiosLayout.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 import { getCollection } from "astro:content";
 import FormattedDate from "../components/FormattedDate.astro";
+import AsciiHeader from "../components/AsciiHeader.astro"; // Assuming you made this
 
 const posts = (await getCollection("blog")).sort(
     (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
 
-// Pagination setup
 const postsPerPage = 15;
 const totalPages = Math.ceil(posts.length / postsPerPage);
 const currentPage = 1;
@@ -16,34 +16,19 @@ const currentPosts = posts.slice(0, postsPerPage);
 ---
 
 <Layout title={SITE_TITLE} description={SITE_DESCRIPTION}>
-    <div>
-        <h2>Latest Blog Posts.</h2>
-        <ul>
+    <main class="terminal-body">
+        <h3 class="section-title">[ LATEST_LOG_ENTRIES ]</h3>
+        
+        <ul class="post-list">
             {
                 currentPosts.map((post, idx) => (
-                    <li key={post.id}>
-                        <a
-                            href={`/blog/${post.id}/`}
-                            style={{
-                                display: "flex",
-                                alignItems: "center",
-                                fontFamily: "monospace",
-                                textDecoration: "none",
-                            }}
-                        >
-                            <span style={{ flexShrink: 0 }}>
-                                {idx + 1}.- {post.data.title}
-                            </span>
-                            <span
-                                style={{
-                                    flexGrow: 1,
-                                    borderBottom: "1px dotted var(--accent)",
-                                    margin: "0 8px",
-                                    height: 0,
-                                }}
-                            />
-                            <span style={{ flexShrink: 0 }}>
-                                <FormattedDate date={post.data.pubDate} />.
+                    <li>
+                        <a href={`/blog/${post.id}/`} class="post-row">
+                            <span class="post-index">{(idx + 1).toString().padStart(2, '0')}.</span>
+                            <span class="post-title">{post.data.title.toUpperCase().replace(/\s+/g, '_')}</span>
+                            <span class="post-spacer"></span>
+                            <span class="post-date">
+                                <FormattedDate date={post.data.pubDate} />
                             </span>
                         </a>
                     </li>
@@ -51,19 +36,9 @@ const currentPosts = posts.slice(0, postsPerPage);
             }
         </ul>
 
-        <!-- Pagination controls -->
-        <div class="pagination">
-            <span>Page {currentPage} of {totalPages}</span>
-            {totalPages > 1 && <a href="/page/2">Next</a>}
-        </div>
-    </div>
+        <nav class="pagination">
+            <span>PAGE {currentPage} OF {totalPages}</span>
+            {totalPages > 1 && <a href="/page/2" class="nav-btn">NEXT_PAGE_>></a>}
+        </nav>
+    </main>
 </Layout>
-<style>
-    .pagination {
-        display: flex;
-        gap: 1rem;
-        align-items: center;
-        justify-content: center;
-        margin-top: 2rem;
-    }
-</style>

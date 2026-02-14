@@ -1,0 +1,47 @@
+---
+import "../styles/hack.css";
+export interface Props {
+    title: string;
+    description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>DABIDDO_SYSTEM_OS</title>
+    </head>
+    <body>
+        <div class="crt-frame"></div>
+        <div class="scanlines"></div>
+
+        <div class="container">
+            <header>
+                <span class="ascii-logo">
+                    ██████ █████ ██████ ██ ██████ ██████ ██████ ██ ██ ██ ██ ██
+                    ██ ██ ██ ██ ██ ██ ██ ██ ██ ██ ███████ ██████ ██ ██ ██ ██ ██
+                    ██ ██ ██ ██ ██ ██ ██ ██ ██ ██ ██ ██ ██ ██ ██ ██████ ██ ██
+                    ██████ ██ ██████ ██████ ██████
+                </span>
+                <div class="sys-info">
+                    <span>VRAM: 64KB OK</span>
+                    <span>BAUD_RATE: 9600</span>
+                    <span>STATUS: ONLINE</span>
+                </div>
+            </header>
+
+            <main id="terminal-content">
+                <section>
+                    <h3 class="typewriter" data-speed="50">[ LATEST_LOGS ]</h3>
+                    <div class="post-list" id="posts-container">
+                        <slot />
+                    </div>
+                </section>
+            </main>
+        </div></body
+    >
+</html>

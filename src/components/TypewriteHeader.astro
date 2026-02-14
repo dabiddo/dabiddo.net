@@ -1,0 +1,20 @@
+---
+const { text } = Astro.props;
+---
+
+<h3 id="typewriter-target" data-text={text}></h3>
+
+<script>
+    const target = document.getElementById("typewriter-target");
+    const text = target?.dataset.text || "";
+    let i = 0;
+
+    function type() {
+        if (i < text.length) {
+            target.innerHTML += text.charAt(i);
+            i++;
+            setTimeout(type, 50);
+        }
+    }
+    type();
+</script>

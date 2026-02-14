@@ -1,0 +1,303 @@
+/* --- CORE THEME --- */
+:root {
+    --term-green: #33ff33;
+    --term-dim: #008f11;
+    --term-bg: #050505;
+    --scanline-color: rgba(18, 16, 16, 0.1);
+    --font-main: 'Courier New', Courier, monospace;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--term-bg);
+    color: var(--term-green);
+    font-family: var(--font-main);
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    line-height: 1.4;
+    overflow-x: hidden;
+}
+
+.post-item {
+    transition: opacity 0.2s ease-in;
+}
+
+/* --- CRT OVERLAYS (Visual Polish) --- */
+.crt-frame {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.5) 100%);
+    pointer-events: none;
+    z-index: 10;
+}
+
+.scanlines {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(var(--scanline-color) 50%,
+            rgba(0, 0, 0, 0) 50%);
+    background-size: 100% 4px;
+    pointer-events: none;
+    z-index: 11;
+}
+
+/* --- CONTAINER --- */
+.container {
+    max-width: 900px;
+    width: 100%;
+    border: 2px double var(--term-green);
+    padding: 30px;
+    background: rgba(0, 10, 0, 0.5);
+    position: relative;
+    z-index: 5;
+}
+
+/* --- HEADER & ASCII --- */
+header {
+    border-bottom: 2px double var(--term-green);
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+}
+
+.ascii-logo {
+    font-size: 10px;
+    line-height: 1.1;
+    white-space: pre;
+    text-shadow: 0 0 8px var(--term-green);
+    margin-bottom: 15px;
+    display: block;
+    /* Subtle flicker only on the logo */
+    animation: logo-flicker 3s linear infinite;
+}
+
+.sys-info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
+    color: var(--term-dim);
+    text-transform: uppercase;
+}
+
+/* --- POST LIST --- */
+.post-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.post-item {
+    display: flex;
+    align-items: baseline;
+    text-decoration: none;
+    color: var(--term-green);
+    padding: 8px 10px;
+    margin: 4px 0;
+    transition: background 0.1s;
+}
+
+.post-item:hover {
+    background-color: var(--term-green);
+    color: var(--term-bg);
+}
+
+.post-id {
+    margin-right: 15px;
+    font-weight: bold;
+}
+
+.post-title {
+    flex-shrink: 0;
+}
+
+.post-dots {
+    flex-grow: 1;
+    border-bottom: 2px dotted var(--term-dim);
+    margin: 0 10px;
+    height: 14px;
+}
+
+.post-date {
+    font-family: monospace;
+}
+
+/* --- CONTENT SECTION --- */
+.article-preview {
+    margin-top: 40px;
+    padding: 20px;
+    border-top: 1px solid var(--term-dim);
+    color: #ccffcc;
+    /* Softer green for reading */
+}
+
+h2 {
+    text-transform: uppercase;
+    border-left: 10px solid var(--term-green);
+    padding-left: 15px;
+}
+
+/* --- NAVIGATION / FOOTER --- */
+nav {
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-between;
+    border-top: 2px double var(--term-green);
+    padding-top: 20px;
+}
+
+.btn {
+    color: var(--term-green);
+    text-decoration: none;
+    padding: 5px 15px;
+    border: 1px solid var(--term-green);
+}
+
+.btn:hover {
+    background: var(--term-dim);
+    color: #fff;
+}
+
+.terminal-body {
+    margin-top: 2rem;
+}
+
+.section-title {
+    color: var(--term-green);
+    margin-bottom: 1.5rem;
+    font-size: 1.2rem;
+}
+
+.post-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.post-row {
+    display: flex;
+    align-items: baseline;
+    text-decoration: none;
+    color: var(--term-green);
+    /* This fixes the blue color */
+    padding: 8px 12px;
+    transition: all 0.1s ease;
+}
+
+/* The "Hover" effect from our aesthetic */
+.post-row:hover {
+    background-color: var(--term-green);
+    color: var(--term-bg);
+    /* Swaps background and text */
+    cursor: pointer;
+}
+
+.post-index {
+    margin-right: 1rem;
+    font-weight: bold;
+}
+
+.post-spacer {
+    flex-grow: 1;
+    border-bottom: 2px dotted var(--term-dim);
+    margin: 0 1rem;
+    height: 14px;
+    /* Adjust based on font size to center the dots */
+}
+
+.pagination {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 3rem;
+    padding-top: 1rem;
+    border-top: 2px double var(--term-green);
+    font-size: 0.9rem;
+}
+
+.nav-btn {
+    color: var(--term-green);
+    text-decoration: none;
+    border: 1px solid var(--term-green);
+    padding: 4px 12px;
+}
+
+.nav-btn:hover {
+    background: var(--term-green);
+    color: var(--term-bg);
+}
+
+/*.cursor {
+            display: inline-block;
+            width: 10px;
+            height: 1.2em;
+            background: var(--term-green);
+            margin-left: 5px;
+            vertical-align: middle;
+            animation: blink 1s step-end infinite;
+        }*/
+
+.cursor {
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+
+    from,
+    to {
+        background-color: transparent;
+    }
+
+    50% {
+        background-color: var(--term-green);
+    }
+}
+
+/* --- ANIMATIONS --- */
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
+
+@keyframes logo-flicker {
+    0% {
+        opacity: 1;
+    }
+
+    98% {
+        opacity: 1;
+    }
+
+    99% {
+        opacity: 0.6;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@media (max-width: 600px) {
+    .post-dots {
+        display: none;
+    }
+
+    .post-item {
+        flex-direction: column;
+        border-bottom: 1px solid var(--term-dim);
+    }
+
+    .ascii-logo {
+        font-size: 6px;
+    }
+}
