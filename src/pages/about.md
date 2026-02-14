@@ -1,6 +1,6 @@
 ---
-layout: "../layouts/About.astro"
-title: "About Me"
+layout: "../layouts/BiosLayout.astro"
+title: "OPERATOR_PROFILE: DABIDDO"
 pubDate: 2023-01-28
 description: "About Me!"
 updatedDate: "September 01 2022"
@@ -9,37 +9,29 @@ image:
     url: 'https://media.publit.io/file/Yamazaki.png' 
     alt: 'I don`t like posting pictures of myself'
 ---
+### [ IDENTITY_VERIFIED ]
 
-### Hello!
+**NAME:** Dabiddo  
+**ORIGIN:** Mexico Sector (Software Engineer)  
+**MISSION:** Learning frontend architecture and new technologies.
 
-I'm Dabiddo, a Mexican Software Engineer,<br>
-I like reading mangas, watching anime, spend time with my family and of course programming.
+I'm currently studying Japanese (`nihongo_v1.0`) with the hope of migrating to Japan Sector. I admire the contrast between high-density urban sprawl and ancient temple structures.
 
-I'm making this site in the hopes of learning more frontend development and new technologies.
-Currently I'm studying japanese with the hope of landing a job and live sometime in Japan, as I like the culture and the contrast between their big cities and the temples.
 <div class="divider"></div>
-I'm not very active on social media, with the exception of <a href="https://twitter.com/dabiddokun" target="_blank">Twitter</a>, I usually spend some free time there reading posts about technology, and the japanese language.
 
-<br>
-<hr>
+**SOCIAL_ACTIVITY:** Minimal footprint. Primary uplink: [Mastodon](https://mstdn.io/@dabiddo).
+
+---
+
 <section>
-  <header><h2 id="NavigationList">Where to find me</h2></header>
+  <header><h2 id="NavigationList">[ EXTERNAL_UPLINKS ]</h2></header>
   <nav>
     <ul>
-      <li>
-        <a href="#">Profile:</a>
-        <ul>
-          <li><a href="https://gitconnected.com/dabiddo/resume" target="_blank">Resume</a></li>
-        </ul>
-      </li>
-      <li>
-      <a href="#">Social Media::</a>
-      </li>
-      <ul>
-        <li><a href="https://twitter.com/dabiddokun" target="_blank">Twitter</a></li>
-        <li><a href="https://www.linkedin.com/in/dabiddo/" target="_blank">LinkedIn</a></li>
-        <li><a href="https://github.com/dabiddo" target="_blank">Github</a></li>
-      </ul>
+      <li><a href="https://gitconnected.com/dabiddo/resume" target="_blank">RESUME.PDF</a></li>
+      <li><a href="https://mstdn.io/@dabiddo" target="_blank">MASTODON_FEED</a></li>
+      <li><a href="https://twitter.com/dabiddokun" target="_blank">TWITTER_FEED</a></li>
+      <li><a href="https://www.linkedin.com/in/dabiddo/" target="_blank">LINKEDIN_PROF</a></li>
+      <li><a href="https://github.com/dabiddo" target="_blank">GITHUB_REPOS</a></li>
     </ul>
   </nav>
 </section>

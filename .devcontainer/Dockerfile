@@ -1,4 +1,4 @@
-FROM node:20.12.2-bookworm-slim 
+FROM node:24.13.1-bookworm-slim 
 
 # Update package lists and install required tools
 RUN apt-get update && apt-get install -y --no-install-recommends \
