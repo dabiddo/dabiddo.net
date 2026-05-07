@@ -16,7 +16,8 @@
 				"astro-build.astro-vscode",
 				"ms-azuretools.vscode-docker",
 				"3timeslazy.vscodium-devpodcontainers",
-				"unifiedjs.vscode-mdx"
+				"unifiedjs.vscode-mdx",
+				"vivaxy.vscode-conventional-commits"
 			]
 		}
 	},
