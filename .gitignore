@@ -24,3 +24,5 @@ pnpm-debug.log*
 .idea/
 
 .pnpm-store/
+
+.devcontainer/devcontainer-lock.json
