@@ -17,7 +17,8 @@
 				"ms-azuretools.vscode-docker",
 				"3timeslazy.vscodium-devpodcontainers",
 				"unifiedjs.vscode-mdx",
-				"vivaxy.vscode-conventional-commits"
+				"vivaxy.vscode-conventional-commits",
+				"kilocode.kilo-code"
 			]
 		}
 	},
