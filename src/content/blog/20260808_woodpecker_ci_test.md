@@ -8,7 +8,7 @@ image:
 pubDate: 2026-08-08
 jpn: '#'
 author: 'Dabiddo'
-tags: ["cicd","devops","laravel", "pestphp", "docker"]
+tags: ["cicd","devops","laravel", "pestphp", "docker","woodpecker_ci"]
 ---
 
 # Local-First CI with Woodpecker CLI: Modernizing a Legacy Laravel App
