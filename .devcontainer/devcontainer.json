@@ -17,14 +17,13 @@
 				"ms-azuretools.vscode-docker",
 				"3timeslazy.vscodium-devpodcontainers",
 				"unifiedjs.vscode-mdx",
-				"vivaxy.vscode-conventional-commits",
-				"kilocode.kilo-code"
+				"vivaxy.vscode-conventional-commits"
 			]
 		}
 	},
 	"remoteUser": "node",
 	"mounts": [
 		"source=${localEnv:HOME}/.gitconfig,target=/home/node/.gitconfig,type=bind,consistency=cached",
-		"source=${localEnv:HOME}/.ssh/dabiddo,target=/home/node/.ssh/id_rsa,type=bind,consistency=cached"
+		"source=${localEnv:HOME}/.ssh/gtdabiddo,target=/home/node/.ssh/id_rsa,type=bind,consistency=cached"
 	]
 }
