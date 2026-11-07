@@ -1,6 +1,6 @@
 ---
 layout: "../layouts/BasicLayout.astro"
-title: "OPERATOR_PROFILE: DABIDDO"
+title: "About"
 description: "About Me!"
 pubDate: 2023-01-28
 author: 'Dabiddo'
@@ -30,6 +30,7 @@ author: 'Dabiddo'
       <ul>
         <li><span class="bullet">></span> <a href="https://gitconnected.com/dabiddo/resume" target="_blank" rel="noopener noreferrer">RESUME.PDF</a></li>
         <li><span class="bullet">></span> <a href="https://mstdn.io/@dabiddo" target="_blank" rel="noopener noreferrer">MASTODON_FEED</a></li>
+        <li><span class="bullet">></span> <a href="https://dev-null.sh/@dabiddo" target="_blank" rel="noopener noreferrer">/DEV/NULL/FEED</a></li>
         <li><span class="bullet">></span> <a href="https://twitter.com/dabiddokun" target="_blank" rel="noopener noreferrer">TWITTER_FEED</a></li>
         <li><span class="bullet">></span> <a href="https://www.linkedin.com/in/dabiddo/" target="_blank" rel="noopener noreferrer">LINKEDIN_PROF</a></li>
         <li><span class="bullet">></span> <a href="https://github.com/dabiddo" target="_blank" rel="noopener noreferrer">GITHUB_REPOS</a></li>
