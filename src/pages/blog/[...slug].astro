@@ -1,14 +1,15 @@
 ---
 import { type CollectionEntry, getCollection } from "astro:content";
-import BlogPost from "../../layouts/PostLayout.astro";
+import BlogPost from "../../layouts/BasicLayout.astro";
 import { render } from "astro:content";
+import FormattedDate from "../../components/FormattedDate.astro";
 
 export async function getStaticPaths() {
-	const posts = await getCollection("blog");
-	return posts.map((post) => ({
-		params: { slug: post.id },
-		props: post,
-	}));
+    const posts = await getCollection("blog");
+    return posts.map((post) => ({
+        params: { slug: post.id },
+        props: post,
+    }));
 }
 type Props = CollectionEntry<"blog">;
 
@@ -16,6 +17,116 @@ const post = Astro.props;
 const { Content } = await render(post);
 ---
 
-<BlogPost {...post.data}>
-	<Content />
+<BlogPost title={post.data.title} description={post.data.description || ""}>
+    <article class="post-wrapper">
+        <header class="post-header">
+            <h1 class="post-title">{post.data.title}</h1>
+            <div class="post-meta">
+                <span>By <strong>{post.data.author || "Dabiddo"}</strong></span>
+                <span class="meta-separator">•</span>
+                <FormattedDate date={post.data.pubDate} />
+            </div>
+        </header>
+
+        <hr class="post-divider" />
+
+        <div class="post-body">
+            <Content />
+        </div>
+    </article>
 </BlogPost>
+
+<style>
+  /* 1. Limita el ancho del artículo para que sea cómodo de leer sin estirar la columna */
+  .post-wrapper {
+    max-width: 680px; 
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .post-title {
+    font-size: 1.6rem;
+    color: #ffffff;
+    margin: 0 0 0.5rem 0;
+    line-height: 1.3;
+  }
+
+  .post-meta {
+    font-size: 0.85rem;
+    color: #a3a3a3;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .meta-separator {
+    color: #525252;
+  }
+
+  .post-divider {
+    border: none;
+    border-top: 1px dashed #404040;
+    margin: 1.25rem 0 1.75rem 0;
+  }
+
+  .post-body {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: #d4d4d4;
+  }
+
+  .post-body :global(p) {
+    margin-bottom: 1.25rem;
+  }
+
+  .post-body :global(h2) {
+    font-size: 1.2rem;
+    color: #ffffff;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #404040;
+    padding-bottom: 0.3rem;
+  }
+
+  .post-body :global(h3) {
+    font-size: 1.05rem;
+    color: #ffffff;
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  /* 2. SOLUCIÓN CLAVE: Evita que bloques de código rompan el ancho del layout */
+  .post-body :global(pre) {
+    background-color: #1e1e1e !important;
+    border: 1px solid #404040;
+    padding: 1rem;
+    border-radius: 4px;
+    overflow-x: auto; /* Agrega scroll horizontal interno si el código es largo */
+    max-width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 1.25rem;
+  }
+
+  .post-body :global(code) {
+    font-family: inherit;
+    font-size: 0.85rem;
+  }
+
+  .post-body :global(ul), .post-body :global(ol) {
+    padding-left: 1.5rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .post-body :global(li) {
+    margin-bottom: 0.4rem;
+  }
+
+  .post-body :global(a) {
+    color: #38bdf8;
+    text-decoration: underline;
+  }
+
+  .post-body :global(a:hover) {
+    opacity: 0.8;
+  }
+</style>

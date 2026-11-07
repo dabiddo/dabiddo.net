@@ -1,5 +1,6 @@
 ---
 import Navbar from "../components/Navbar.astro";
+import { SEO } from "../components/SEO.astro";
 import "../styles/terminal.css";
 import "../styles/site.css";
 export interface Props {
@@ -17,30 +18,9 @@ const { title, description } = Astro.props;
         <meta name="viewport" content="width=device-width" />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <meta name="generator" content={Astro.generator} />
+        <SEO title={title} description={description} />
         <title>{title}</title>
-        <!-- Primary Meta Tags -->
-        <meta name="title" content={title} />
-        <meta name="description" content={description} />
-
-        <!-- Open Graph / Facebook -->
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://dabiddo.net/" />
-        <meta property="og:title" content={title} />
-        <meta property="og:description" content={description} />
-        <meta
-            property="og:image"
-            content="https://media.publit.io/file/otherstuff/seo_header_v2.png"
-        />
-
-        <!-- Twitter -->
-        <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content="https://dabiddo.net/" />
-        <meta property="twitter:title" content={title} />
-        <meta property="twitter:description" content={description} />
-        <meta
-            property="twitter:image"
-            content="https://media.publit.io/file/otherstuff/seo_header_v2.png"
-        />
+        
     </head>
     <body>
         <div class="container">

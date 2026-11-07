@@ -1,40 +1,127 @@
 ---
-import Layout from "../../layouts/BiosLayout.astro";
+import Layout from "../../layouts/BasicLayout.astro";
+import { SITE_TITLE } from "../../consts";
 import { getCollection } from "astro:content";
 
 export const getUniqueTags = (posts) => {
     let tags: string[] = [];
     posts.forEach((post) => {
-        tags = [...tags, ...post.data.tags]
-            .map((tag) => tag)
-            .filter(
-                (value: string, index: number, self: string[]) =>
-                    self.indexOf(value) === index,
-            );
+        if (post.data.tags) {
+            tags = [...tags, ...post.data.tags]
+                .filter(
+                    (value: string, index: number, self: string[]) =>
+                        self.indexOf(value) === index,
+                );
+        }
     });
-    return tags;
+    return tags.sort();
 };
-
-export const getPostsByTag = (posts, tag: string) =>
-    posts.filter((post) => post.data.tags.includes(tag));
 
 const posts = await getCollection("blog");
 let tags = getUniqueTags(posts);
 ---
 
-<Layout title="tags" description="list all tags">
-    <fieldset>
-        <legend>Tags</legend>
-        <div class="form-group">
-            <ul>
-                {
-                    tags.map((tag) => (
+<Layout title={`TAGS - ${SITE_TITLE}`} description="List of all available tags">
+    <main class="terminal-body">
+        <h3 class="section-title">[ AVAILABLE_TAGS ]</h3>
+        
+        <ul class="post-list">
+            {
+                tags.map((tag, idx) => {
+                    const count = posts.filter(p => p.data.tags && p.data.tags.includes(tag)).length;
+                    return (
                         <li>
-                            <a href={`/tags/${tag}`}>{tag}</a>
+                            <a href={`/tags/${tag}`} class="post-row">
+                                <span class="post-index">{(idx + 1).toString().padStart(2, '0')}.</span>
+                                <span class="post-title">{tag.toUpperCase()}</span>
+                                <span class="post-spacer"></span>
+                                <span class="post-date">[{count} POST{count === 1 ? '' : 'S'}]</span>
+                            </a>
                         </li>
-                    ))
-                }
-            </ul>
+                    );
+                })
+            }
+        </ul>
+
+        <div class="back-link-container">
+            <a href="/" class="nav-btn">&lt;&lt;_BACK_TO_HOME</a>
         </div>
-    </fieldset>
+    </main>
 </Layout>
+
+<style>
+  .terminal-body {
+    font-size: 0.9rem;
+  }
+
+  .section-title {
+    font-weight: bold;
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+    margin-bottom: 1.5rem;
+    color: #ffffff;
+  }
+
+  .post-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .post-list li {
+    margin-bottom: 0.6rem;
+  }
+
+  .post-row {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    text-decoration: none;
+  }
+
+  .post-index {
+    color: #737373;
+    font-size: 0.8rem;
+  }
+
+  .post-title {
+    color: #38bdf8;
+    text-decoration: underline;
+  }
+
+  .post-row:hover .post-title {
+    opacity: 0.7;
+  }
+
+  .post-spacer {
+    flex-grow: 1;
+    border-bottom: 1px dotted #404040;
+    margin: 0 0.5rem;
+    opacity: 0.4;
+  }
+
+  .post-date {
+    font-size: 0.8rem;
+    color: #a3a3a3;
+    white-space: nowrap;
+  }
+
+  .back-link-container {
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px dashed #404040;
+  }
+
+  .nav-btn {
+    color: #38bdf8;
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    font-size: 0.85rem;
+    font-weight: bold;
+  }
+
+  .nav-btn:hover {
+    opacity: 0.7;
+    text-decoration: underline;
+  }
+</style>

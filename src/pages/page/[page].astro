@@ -1,10 +1,11 @@
 ---
-import Layout from "../../layouts/BiosLayout.astro";
+import Layout from "../../layouts/BasicLayout.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts";
 import { getCollection } from "astro:content";
 import FormattedDate from "../../components/FormattedDate.astro";
+import type { GetStaticPaths } from "astro";
 
-export async function getStaticPaths() {
+export const getStaticPaths = (async () => {
     const allPosts = await getCollection("blog");
     const sortedPosts = allPosts.sort(
         (a, b) =>
@@ -12,11 +13,11 @@ export async function getStaticPaths() {
             new Date(a.data.pubDate).valueOf(),
     );
 
-    const postsPerPage = 15;
+    const postsPerPage = 20; // Sincronizado con el index
     const totalPages = Math.ceil(sortedPosts.length / postsPerPage);
 
     return Array.from({ length: totalPages - 1 }).map((_, index) => {
-        const pageNum = index + 2; // Start from page 2
+        const pageNum = index + 2; 
         const start = (pageNum - 1) * postsPerPage;
         const end = start + postsPerPage;
 
@@ -29,42 +30,138 @@ export async function getStaticPaths() {
             },
         };
     });
-}
+}) satisfies GetStaticPaths;
 
 const { posts, currentPage, totalPages } = Astro.props;
 ---
 
-<Layout title={SITE_TITLE} description={SITE_DESCRIPTION}>
-     <main class="terminal-body">
-        <h3 class="section-title">[ LATEST_LOG_ENTRIES ]</h3>
+<Layout title={`${SITE_TITLE} - Page ${currentPage}`} description={SITE_DESCRIPTION}>
+     <section class="home-posts">
+    <p class="section-title">LATEST POSTS:</p>
+    <ul>
+      {posts.map((post) => (
+        <li>
+          <span class="bullet">-</span>
+          <a href={`/blog/${post.id}`} class="post-title">
+            {post.data.title}
+          </a>
+          <span class="post-date">
+            <FormattedDate date={post.data.pubDate} />
+          </span>
+        </li>
+      ))}
+    </ul>
+    
+    {totalPages > 1 && (
+      <nav class="pagination">
+        <!-- Botón anterior dinámico -->
+        <a class="nav-btn" href={currentPage === 2 ? "/" : `/page/${currentPage - 1}`}>
+          &lt;&lt;_PREV_PAGE
+        </a>
         
-        <ul class="post-list">
-            {
-                posts.map((post, idx) => (
-                    <li>
-                        <a href={`/blog/${post.id}/`} class="post-row">
-                            <span class="post-index">{(idx + 1).toString().padStart(2, '0')}.</span>
-                            <span class="post-title">{post.data.title.toUpperCase().replace(/\s+/g, '_')}</span>
-                            <span class="post-spacer"></span>
-                            <span class="post-date">
-                                <FormattedDate date={post.data.pubDate} />
-                            </span>
-                        </a>
-                    </li>
-                ))
-            }
-        </ul>
+        <span class="page-info">PAGE {currentPage} OF {totalPages}</span>
 
-        <!-- Pagination controls -->
-        <div class="pagination">
-            <a class="nav-btn" href={currentPage === 2 ? "/" : `/page/${currentPage - 1}`}
-                ><<_PREVIOUS_PAGE</a>
-            <span>Page {currentPage} of {totalPages}</span>
-            {
-                currentPage < totalPages && (
-                    <a class="nav-btn" href={`/page/${currentPage + 1}`}>NEXT_PAGE_>></a>
-                )
-            }
-        </div>
-    </main>
+        <!-- Botón siguiente dinámico -->
+        {currentPage < totalPages ? (
+          <a class="nav-btn" href={`/page/${currentPage + 1}`}>
+            NEXT_PAGE_&gt;&gt;
+          </a>
+        ) : (
+          <span class="disabled-btn">NEXT_PAGE_&gt;&gt;</span>
+        )}
+      </nav>
+    )}
+  </section>
 </Layout>
+
+<style>
+  .home-posts {
+    font-size: 0.9rem;
+  }
+
+  .section-title {
+    font-weight: bold;
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+    margin-bottom: 1rem;
+    color: #ffffff;
+  }
+
+  .home-posts ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .home-posts li {
+    margin-bottom: 0.4rem;
+    display: flex;
+    align-items: baseline;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+  }
+
+  .bullet {
+    color: #737373;
+  }
+
+  .post-title {
+    color: #38bdf8;
+    text-decoration: underline;
+  }
+
+  .post-title:hover {
+    opacity: 0.7;
+  }
+
+  .sponsored-badge {
+    font-size: 0.65rem;
+    background-color: #404040;
+    padding: 0.1rem 0.3rem;
+    border-radius: 2px;
+    font-weight: bold;
+    color: #e5e5e5;
+  }
+
+  .post-date {
+    font-size: 0.8rem;
+    color: #a3a3a3;
+    margin-left: auto; /* Empuja la fecha hacia la derecha si hay espacio */
+  }
+
+  .see-all {
+    margin-top: 1.5rem;
+  }
+
+  .pagination {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px dashed #404040;
+    font-size: 0.85rem;
+    font-weight: bold;
+  }
+
+  .page-info {
+    color: #a3a3a3;
+    letter-spacing: 0.05em;
+  }
+
+  .nav-btn {
+    color: #38bdf8;
+    text-decoration: none;
+    letter-spacing: 0.05em;
+  }
+
+  .nav-btn:hover {
+    opacity: 0.7;
+    text-decoration: underline;
+  }
+
+  .disabled-btn {
+    color: #525252;
+    cursor: not-allowed;
+  }
+</style>
