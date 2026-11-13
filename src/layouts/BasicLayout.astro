@@ -57,8 +57,8 @@ const { title, description } = Astro.props;
                 </main>
 
                 <aside class="sidebar">
-                    <div class="sponsor-box">
-                        <img src="https://media.publit.io/file/Yamazaki.png" alt="Sponsor image" class="sponsor-img" />
+                    <div class="profile-box">
+                        <img src="https://media.publit.io/file/Yamazaki.png" alt="profile image" class="profile-img" />
                     </div>
                 </aside>
             </div>
@@ -175,14 +175,14 @@ const { title, description } = Astro.props;
         gap: 1.5rem;
     }
 
-    .sponsor-box {
+    .profile-box {
         background-color: #2a2a2a;
         border: 1px solid #404040;
         padding: 1rem;
         position: relative;
     }
 
-    .sponsor-tag {
+    .profile-tag {
         font-size: 0.65rem;
         letter-spacing: 0.05em;
         color: #a3a3a3;
@@ -190,24 +190,24 @@ const { title, description } = Astro.props;
         margin-bottom: 0.5rem;
     }
 
-    .sponsor-box h3 {
+    .profile-box h3 {
         font-size: 0.95rem;
         margin: 0 0 0.5rem 0;
         color: #ffffff;
     }
 
-    .sponsor-box p {
+    .profile-box p {
         font-size: 0.8rem;
         margin: 0;
         color: #a3a3a3;
     }
 
-    .sponsor-cta {
+    .profile-cta {
         border: 1px dashed #525252;
         background-color: transparent;
     }
 
-    .sponsor-img {
+    .profile-img {
         width: 100%;          /* Hace que la imagen ocupe todo el ancho de la caja */
         height: auto;         /* Mantiene la proporción original de la imagen */
         display: block;       /* Elimina espacios fantasma inferiores en elementos inline */
